@@ -1,0 +1,28 @@
+{
+  "content": [
+    {
+      "numProcesso": "253510307620181",
+      "nomeProduto": "DIPIRONA MONOIDRATADA",
+      "razaoSocial": "EMS S/A",
+      "cnpj": "57507378000220",
+      "expediente": "700001",
+      "idBulaPacienteProtegido": "d5e6f7a8b9c0d5e6f7a8b9c0d5e6f7a8",
+      "idBulaProfissionalProtegido": "a8b9c0d5e6f7a8b9c0d5e6f7a8b9c0d5",
+      "dataAtualizacao": "2023-09-01"
+    },
+    {
+      "numProcesso": "25351727581201990",
+      "nomeProduto": "DIPIRONA MONOIDRATADA",
+      "razaoSocial": "GERMED FARMACEUTICA LTDA",
+      "cnpj": "44734671000151",
+      "expediente": "700002",
+      "idBulaPacienteProtegido": "e6f7a8b9c0d5e6f7a8b9c0d5e6f7a8b9",
+      "idBulaProfissionalProtegido": "b9c0d5e6f7a8b9c0d5e6f7a8b9c0d5e6",
+      "dataAtualizacao": "2023-08-15"
+    }
+  ],
+  "totalElements": 2,
+  "number": 0,
+  "size": 10,
+  "totalPages": 1
+}

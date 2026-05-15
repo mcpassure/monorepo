@@ -1,0 +1,39 @@
+{
+  "scenario": "S15",
+  "description": "Performance — 8 queries sequenciais completas de um estabelecimento < 2 segundos",
+  "persona": "sistema/dev healthtech",
+  "tools": [
+    "buscar_por_codigo_cnes",
+    "buscar_por_nome",
+    "buscar_por_municipio",
+    "buscar_por_tipo",
+    "listar_profissionais",
+    "listar_leitos",
+    "listar_equipamentos",
+    "listar_servicos"
+  ],
+  "inputs": [
+    { "tool": "buscar_por_codigo_cnes", "input": { "codigoCnes": "2077485" } },
+    { "tool": "buscar_por_nome", "input": { "nome": "clinicas", "uf": "SP", "limit": 5 } },
+    { "tool": "buscar_por_municipio", "input": { "codigoIbge": "355030", "limit": 5 } },
+    { "tool": "buscar_por_tipo", "input": { "tipo": "hospital", "uf": "SP", "limit": 5 } },
+    { "tool": "listar_profissionais", "input": { "codigoCnes": "2077485" } },
+    { "tool": "listar_leitos", "input": { "codigoCnes": "2077485" } },
+    { "tool": "listar_equipamentos", "input": { "codigoCnes": "2077485" } },
+    { "tool": "listar_servicos", "input": { "codigoCnes": "2077485" } }
+  ],
+  "expected_output": {
+    "all_succeed": true,
+    "total_ms_max": 2000
+  },
+  "assertions": [
+    "all_results.every(r => !r.isError)",
+    "total_elapsed_ms < 2000"
+  ],
+  "observed_result": {
+    "total_elapsed_ms": 2,
+    "note": "Com seed de 6 hospitais em SQLite in-memory — dataset real pode ser maior mas índices garantem < 500ms"
+  },
+  "suite": "t05-scenarios",
+  "test_id": "S15"
+}

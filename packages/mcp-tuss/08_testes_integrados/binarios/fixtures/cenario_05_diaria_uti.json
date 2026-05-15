@@ -1,0 +1,15 @@
+{
+  "scenario": "05_faturista_diaria_uti",
+  "description": "Faturista hospitalar buscando diária de UTI adulto por query",
+  "tool": "buscar_diaria_taxa_tuss",
+  "input": { "query": "UTI", "limit": 10 },
+  "expected_output": {
+    "data_length_gte": 1,
+    "data[*].tabela": "18"
+  },
+  "assertions": [
+    "data.length >= 1",
+    "data.every(r => r.tabela === '18')",
+    "_meta.modo === 'cache_local'"
+  ]
+}

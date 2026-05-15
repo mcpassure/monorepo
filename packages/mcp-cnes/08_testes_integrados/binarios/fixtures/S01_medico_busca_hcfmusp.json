@@ -1,0 +1,23 @@
+{
+  "scenario": "S01",
+  "description": "Médico busca Hospital das Clínicas de SP pelo nome",
+  "persona": "médico",
+  "tool": "buscar_por_nome",
+  "input": {
+    "nome": "clinicas",
+    "uf": "SP",
+    "limit": 5
+  },
+  "expected_output": {
+    "total_min": 1,
+    "contains_cnes": "2077485"
+  },
+  "assertions": [
+    "estabelecimentos.length >= 1",
+    "estabelecimentos.some(e => e.codigoCnes === '2077485')",
+    "estabelecimentos.every(e => e.uf === 'SP')",
+    "estabelecimentos.every(e => e.source === 'local')"
+  ],
+  "suite": "t05-scenarios",
+  "test_id": "S01"
+}

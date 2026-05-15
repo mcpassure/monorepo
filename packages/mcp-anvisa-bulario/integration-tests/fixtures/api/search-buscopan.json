@@ -1,0 +1,28 @@
+{
+  "content": [
+    {
+      "numProcesso": "25351898921202008",
+      "nomeProduto": "BUSCOPAN COMPOSTO",
+      "razaoSocial": "COSMED INDUSTRIA DE COSMETICOS E MEDICAMENTOS S.A.",
+      "cnpj": "60716075000190",
+      "expediente": "1100001",
+      "idBulaPacienteProtegido": "e2f3a4b5c6d7e2f3a4b5c6d7e2f3a4b5",
+      "idBulaProfissionalProtegido": "b5c6d7e2f3a4b5c6d7e2f3a4b5c6d7e2",
+      "dataAtualizacao": "2023-10-01"
+    },
+    {
+      "numProcesso": "25351042897202122",
+      "nomeProduto": "BUSCOPAN PEDIATRICO",
+      "razaoSocial": "COSMED INDUSTRIA DE COSMETICOS E MEDICAMENTOS S.A.",
+      "cnpj": "60716075000190",
+      "expediente": "1100002",
+      "idBulaPacienteProtegido": "f3a4b5c6d7e8f3a4b5c6d7e8f3a4b5c6",
+      "idBulaProfissionalProtegido": "c6d7e8f3a4b5c6d7e8f3a4b5c6d7e8f3",
+      "dataAtualizacao": "2023-09-15"
+    }
+  ],
+  "totalElements": 3,
+  "number": 0,
+  "size": 10,
+  "totalPages": 1
+}

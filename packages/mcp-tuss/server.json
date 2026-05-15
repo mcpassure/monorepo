@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.mcpassure/mcp-tuss",
+  "description": "Consulta tabelas TUSS da ANS: procedimentos, medicamentos, diárias e taxas via SQLite local.",
+  "version": "0.1.2",
+  "title": "MCP TUSS / Rol ANS",
+  "repository": {
+    "url": "https://github.com/mcpassure/mcp-tuss",
+    "source": "github"
+  },
+  "websiteUrl": "https://mcpassure.com.br/registry/tuss",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@mcpassure/mcp-tuss",
+      "version": "0.1.2",
+      "runtimeHint": "npx",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}

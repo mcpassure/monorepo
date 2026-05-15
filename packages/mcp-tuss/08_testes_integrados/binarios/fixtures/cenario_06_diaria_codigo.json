@@ -1,0 +1,20 @@
+{
+  "scenario": "06_diaria_codigo",
+  "description": "Operadora verificando diária 60000279 (DIÁRIA COMPACTA DE ISOLAMENTO DE UTI) por código exato",
+  "tool": "buscar_diaria_taxa_tuss",
+  "input": { "codigo": "60000279" },
+  "expected_output": {
+    "data_length": 1,
+    "data[0].codigo": "60000279",
+    "data[0].tabela": "18",
+    "data[0].termo_matches": "UTI|terapia intensiva",
+    "_meta.modo": "cache_local"
+  },
+  "assertions": [
+    "data.length === 1",
+    "data[0].codigo === '60000279'",
+    "data[0].tabela === '18'",
+    "/UTI|terapia intensiva/i.test(data[0].termo)",
+    "_meta.modo === 'cache_local'"
+  ]
+}

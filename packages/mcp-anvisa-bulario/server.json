@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.mcpassure/mcp-anvisa-bulario",
+  "description": "Consulta o Bulário Eletrônico da ANVISA: bulas, registros, tarjas e apresentações.",
+  "version": "2.0.0",
+  "title": "MCP Bulário ANVISA",
+  "repository": {
+    "url": "https://github.com/mcpassure/mcp-anvisa-bulario",
+    "source": "github"
+  },
+  "websiteUrl": "https://mcpassure.com.br/registry/anvisa-bulario",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@mcpassure/mcp-anvisa-bulario",
+      "version": "2.0.0",
+      "runtimeHint": "npx",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}

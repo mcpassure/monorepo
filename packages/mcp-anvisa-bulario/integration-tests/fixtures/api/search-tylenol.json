@@ -1,0 +1,28 @@
+{
+  "content": [
+    {
+      "numProcesso": "25351464826202349",
+      "nomeProduto": "TYLENOL",
+      "razaoSocial": "KENVUE LTDA.",
+      "cnpj": "60408075000152",
+      "expediente": "200001",
+      "idBulaPacienteProtegido": "c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6",
+      "idBulaProfissionalProtegido": "d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1",
+      "dataAtualizacao": "2024-01-20"
+    },
+    {
+      "numProcesso": "25351464493202358",
+      "nomeProduto": "TYLENOL SINUS",
+      "razaoSocial": "KENVUE LTDA.",
+      "cnpj": "60408075000152",
+      "expediente": "200002",
+      "idBulaPacienteProtegido": "d4e5f6a1b2c3d4e5f6a1b2c3d4e5f6a1",
+      "idBulaProfissionalProtegido": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+      "dataAtualizacao": "2024-01-20"
+    }
+  ],
+  "totalElements": 2,
+  "number": 0,
+  "size": 10,
+  "totalPages": 1
+}

@@ -1,0 +1,49 @@
+name: Upstream Canary
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  canary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run canary
+        run: npm run canary
+
+      - name: Open issue on drift
+        if: failure()
+        uses: actions/github-script@v8
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[upstream-drift] CNES schema mudou em ${new Date().toISOString().slice(0,10)}`,
+              body: 'Canário detectou divergência ou fonte inacessível. Ver logs do workflow para detalhes.',
+              labels: ['upstream-drift']
+            });
+
+      - name: Update STATUS.md
+        if: success()
+        run: |
+          echo "Last canary OK: $(date -u +%FT%TZ)" > STATUS.md
+          git config user.name "mcpassure-bot"
+          git config user.email "bot@mcpassure.com.br"
+          git add STATUS.md
+          git commit -m "chore: update STATUS.md after canary" || echo "no changes"
+          git push

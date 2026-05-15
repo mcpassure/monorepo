@@ -1,0 +1,20 @@
+{
+  "scenario": "04_farmaceutico_codigo_exato",
+  "description": "Farmacêutico consultando medicamento Dipirona Sódica por código exato",
+  "tool": "buscar_medicamento_tuss",
+  "input": { "codigo": "90282680" },
+  "expected_output": {
+    "data_length": 1,
+    "data[0].codigo": "90282680",
+    "data[0].tabela": "20",
+    "data[0].termo_contains": "DIPIRONA",
+    "_meta.modo": "cache_local"
+  },
+  "assertions": [
+    "data.length === 1",
+    "data[0].codigo === '90282680'",
+    "data[0].tabela === '20'",
+    "data[0].termo.toLowerCase().includes('dipirona')",
+    "_meta.modo === 'cache_local'"
+  ]
+}

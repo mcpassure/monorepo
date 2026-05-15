@@ -1,0 +1,18 @@
+{
+  "scenario": "24_annotations",
+  "description": "TOOL_ANNOTATIONS deve ter readOnlyHint=true, idempotentHint=true, destructiveHint=false, openWorldHint=true (spec MCP)",
+  "tool": "all",
+  "input": "TOOL_ANNOTATIONS constant",
+  "expected_output": {
+    "readOnlyHint": true,
+    "idempotentHint": true,
+    "destructiveHint": false,
+    "openWorldHint": true
+  },
+  "assertions": [
+    "TOOL_ANNOTATIONS.readOnlyHint === true",
+    "TOOL_ANNOTATIONS.idempotentHint === true",
+    "TOOL_ANNOTATIONS.destructiveHint === false",
+    "TOOL_ANNOTATIONS.openWorldHint === true"
+  ]
+}

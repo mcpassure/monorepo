@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CNES DBC Layout v1",
+  "description": "Schema baseline para validação de colunas dos arquivos CSV gerados pelos DBC do CNES/DATASUS. Usado pelo canário diário para detectar drift de layout.",
+  "version": "1",
+  "encoding": "latin1",
+  "groups": {
+    "ST": {
+      "description": "Estabelecimentos",
+      "required_columns": [
+        "CO_CNES",
+        "NO_FANTASIA",
+        "TP_UNIDADE",
+        "NO_MUNICIPIO",
+        "SG_UF",
+        "TP_GESTAO",
+        "TP_VINCULO_SUS"
+      ],
+      "optional_columns": [
+        "NO_RAZAO_S",
+        "NO_RAZAO_SOCIAL",
+        "NU_CNPJ",
+        "CO_NATUREZA_JUR",
+        "CO_MUNICIPIO_GESTOR",
+        "CO_MUNICIPIO",
+        "NO_LOGRADO",
+        "NO_LOGRADOURO",
+        "NU_LATITUDE",
+        "NU_LONGITUDE",
+        "NU_TELEFON",
+        "NU_TELEFONE"
+      ],
+      "primary_key_columns": ["CO_CNES"]
+    },
+    "LT": {
+      "description": "Leitos",
+      "required_columns": ["CNES", "TP_LEITO", "CO_LEITO", "QT_EXIST", "QT_SUS", "QT_NSUS"],
+      "optional_columns": ["CO_CNES"],
+      "primary_key_columns": ["CNES", "CO_LEITO"]
+    },
+    "EQ": {
+      "description": "Equipamentos",
+      "required_columns": ["CNES", "CO_EQUIP", "DS_EQUIP", "QT_EXIST", "QT_USO"],
+      "optional_columns": ["CO_CNES"],
+      "primary_key_columns": ["CNES", "CO_EQUIP"]
+    },
+    "PF": {
+      "description": "Profissionais",
+      "required_columns": ["CNES", "CPF_PROF", "NM_PROF", "CBO", "TP_VINCULO"],
+      "optional_columns": ["CO_CNES", "CO_CBO", "DS_CBO"],
+      "primary_key_columns": ["CNES", "CPF_PROF", "CBO"]
+    },
+    "SR": {
+      "description": "Serviços especializados",
+      "required_columns": ["CNES", "SERV_ESP", "CLASS_SR"],
+      "optional_columns": ["CO_CNES", "CO_SERVICO", "DS_SERVICO", "CO_CLASS_SR", "DS_CLASS_SR"],
+      "primary_key_columns": ["CNES", "SERV_ESP", "CLASS_SR"]
+    }
+  }
+}

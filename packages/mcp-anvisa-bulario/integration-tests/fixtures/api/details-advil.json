@@ -1,0 +1,30 @@
+{
+  "numProcesso": "25351400358202201",
+  "nomeProduto": "ADVIL",
+  "razaoSocial": "PF CONSUMER HEALTHCARE BRAZIL LTDA",
+  "cnpj": "43585865000132",
+  "tarja": "TARJA VERMELHA",
+  "principioAtivo": "IBUPROFENO",
+  "classesTerapeuticas": [
+    {
+      "descricao": "ANALGESICOS NAO NARCOTICOS"
+    },
+    {
+      "descricao": "ANTINFLAMATORIOS NAO ESTEROIDAIS"
+    }
+  ],
+  "idBulaPacienteProtegido": "a2b3c4d5e6f7a2b3c4d5e6f7a2b3c4d5",
+  "idBulaProfissionalProtegido": "d5e6f7a2b3c4d5e6f7a2b3c4d5e6f7a2",
+  "dataAtualizacao": "2024-04-01",
+  "apresentacoes": [
+    {
+      "descricao": "200MG CAPSULA MOLE 20 UNIDADES"
+    },
+    {
+      "descricao": "400MG COMPRIMIDO REVESTIDO 20 UNIDADES"
+    },
+    {
+      "descricao": "600MG COMPRIMIDO REVESTIDO 20 UNIDADES"
+    }
+  ]
+}

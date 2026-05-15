@@ -1,0 +1,25 @@
+{
+  "scenario": "13_meta_disclaimer_100pct",
+  "description": "Varredura: _meta e disclaimer presentes em 100% das 4 tools com inputs válidos",
+  "tools": [
+    { "tool": "buscar_procedimento_tuss", "input": { "codigo": "10101012" } },
+    { "tool": "buscar_medicamento_tuss", "input": { "codigo": "90282680" } },
+    { "tool": "buscar_diaria_taxa_tuss", "input": { "codigo": "60000279" } },
+    { "tool": "status_sincronizacao_tuss", "input": {} }
+  ],
+  "expected_output": {
+    "all_tools_have_meta": true,
+    "all_tools_have_disclaimer": true,
+    "disclaimer_min_length": 50
+  },
+  "assertions": [
+    "r1._meta !== undefined",
+    "r2._meta !== undefined",
+    "r3._meta !== undefined",
+    "r4._meta !== undefined",
+    "typeof r1.disclaimer === 'string' && r1.disclaimer.length >= 50",
+    "typeof r2.disclaimer === 'string' && r2.disclaimer.length >= 50",
+    "typeof r3.disclaimer === 'string' && r3.disclaimer.length >= 50",
+    "typeof r4.disclaimer === 'string' && r4.disclaimer.length >= 50"
+  ]
+}

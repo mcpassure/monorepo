@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
+  "name": "io.github.mcpassure/mcp-cnes",
+  "description": "Consulta o CNES (estabelecimentos de saúde): profissionais, leitos, equipamentos, serviços.",
+  "version": "0.1.1",
+  "title": "MCP CNES",
+  "repository": {
+    "url": "https://github.com/mcpassure/mcp-cnes",
+    "source": "github"
+  },
+  "websiteUrl": "https://mcpassure.com.br/registry/cnes",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@mcpassure/mcp-cnes",
+      "version": "0.1.1",
+      "runtimeHint": "npx",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}

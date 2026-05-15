@@ -1,0 +1,16 @@
+{
+  "scenario": "18_diaria_sem_args",
+  "description": "buscar_diaria_taxa_tuss sem codigo nem query deve retornar erro estruturado",
+  "tool": "buscar_diaria_taxa_tuss",
+  "input": {},
+  "expected_output": {
+    "data_length": 0,
+    "error_present": true,
+    "error_message": "Informe `codigo` ou `query`."
+  },
+  "assertions": [
+    "data.length === 0",
+    "typeof result.error === 'string'",
+    "result.error === 'Informe `codigo` ou `query`.'"
+  ]
+}

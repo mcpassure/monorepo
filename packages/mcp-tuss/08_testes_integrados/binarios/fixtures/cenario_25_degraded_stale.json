@@ -1,0 +1,17 @@
+{
+  "scenario": "25_degraded_stale",
+  "description": "Com MCPASSURE_DEGRADED_THRESHOLD_DAYS=0 todos os _meta devem retornar status='stale', validando o estado degraded",
+  "tool": "status_sincronizacao_tuss",
+  "input": {},
+  "env": {
+    "MCPASSURE_DEGRADED_THRESHOLD_DAYS": "-1"
+  },
+  "expected_output": {
+    "_meta_count": 3,
+    "all_status": "stale"
+  },
+  "assertions": [
+    "_meta.length === 3",
+    "_meta[*].status === 'stale' (defasagem_dias > 0)"
+  ]
+}

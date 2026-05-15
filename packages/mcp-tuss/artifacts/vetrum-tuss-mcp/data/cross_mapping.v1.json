@@ -1,0 +1,65 @@
+{
+  "version": "v1",
+  "generated_at": "2026-05-13T00:00:00Z",
+  "description": "Mapeamento cruzado TUSS↔CBHPM↔Rol ANS derivado da correlação oficial ANS. Mudanças exigem PR review.",
+  "source_files": [
+    {
+      "name": "correlacao_tuss_rol",
+      "version": "RN 654/2025",
+      "url": "https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos/CorrelaoTUSS.202409Rol.2021_TUSS202603_RN652.2025_RN654.2025.xlsx",
+      "hash": "sha256:pendente-de-sincronizacao"
+    }
+  ],
+  "mappings": [
+    {
+      "tuss": "10101012",
+      "descricao": "Consulta em consultório (no horário normal ou preestabelecido)",
+      "tabela": "22",
+      "cbhpm_capitulo": "PROCEDIMENTOS GERAIS",
+      "cbhpm_grupo": "PROCEDIMENTOS GERAIS",
+      "cbhpm_subgrupo": "CONSULTAS, VISITAS HOSPITALARES OU ACOMPANHAMENTO DE PACIENTES",
+      "rol_ans": "CONSULTA MÉDICA",
+      "rn_origem": "RN 465/2021"
+    },
+    {
+      "tuss": "40301370",
+      "descricao": "Ressonância magnética de crânio e encéfalo",
+      "tabela": "22",
+      "cbhpm_capitulo": null,
+      "cbhpm_grupo": null,
+      "cbhpm_subgrupo": null,
+      "rol_ans": "RESSONÂNCIA MAGNÉTICA DO ENCÉFALO",
+      "rn_origem": "RN 465/2021"
+    },
+    {
+      "tuss": "40702014",
+      "descricao": "Transplante de córnea",
+      "tabela": "22",
+      "cbhpm_capitulo": "OFTALMOLOGIA",
+      "cbhpm_grupo": "PROCEDIMENTOS CIRÚRGICOS",
+      "cbhpm_subgrupo": "TRANSPLANTES OCULARES",
+      "rol_ans": "TRANSPLANTE DE CÓRNEA",
+      "rn_origem": "RN 465/2021"
+    },
+    {
+      "tuss": "40101015",
+      "descricao": "Colonoscopia com biópsias múltiplas",
+      "tabela": "22",
+      "cbhpm_capitulo": null,
+      "cbhpm_grupo": null,
+      "cbhpm_subgrupo": null,
+      "rol_ans": "COLONOSCOPIA",
+      "rn_origem": "RN 465/2021"
+    },
+    {
+      "tuss": "98765432",
+      "descricao": "Parafuso de titânio para fixação óssea",
+      "tabela": "19",
+      "cbhpm_capitulo": null,
+      "cbhpm_grupo": null,
+      "cbhpm_subgrupo": null,
+      "rol_ans": null,
+      "rn_origem": null
+    }
+  ]
+}

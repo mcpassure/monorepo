@@ -1,0 +1,13 @@
+{
+  "version": "v1",
+  "generated_at": "2026-05-13",
+  "description": "Schema baseline do CodeSystem FHIR BRCBHPMTUSS (terminologia.saude.gov.br)",
+  "required_fields": ["resourceType", "id", "url", "version", "concept"],
+  "required_concept_fields": ["code", "display"],
+  "required_property_fields": ["code"],
+  "min_concepts": 1000,
+  "expected_url_prefix": "https://terminologia.saude.gov.br/fhir/CodeSystem/",
+  "expected_resource_type": "CodeSystem",
+  "sample_concept_codes": ["10101012", "40301370"],
+  "note": "Se min_concepts < 1000 ou required_fields ausentes, o canário deve sinalizar upstream-drift"
+}

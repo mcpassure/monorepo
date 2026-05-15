@@ -1,0 +1,18 @@
+{
+  "scenario": "22_sql_injection_codigo",
+  "description": "Input de SQL injection via campo 'codigo' deve retornar array vazio sem lançar exceção e sem corromper banco",
+  "tool": "buscar_procedimento_tuss",
+  "input": {
+    "codigo": "'; DROP TABLE tuss_22; --"
+  },
+  "expected_output": {
+    "data_length": 0,
+    "table_intact": true
+  },
+  "assertions": [
+    "data.length === 0",
+    "_meta presente",
+    "_meta.modo === 'cache_local'",
+    "COUNT(*) FROM tuss_22 >= 5900 (tabela não foi dropada)"
+  ]
+}

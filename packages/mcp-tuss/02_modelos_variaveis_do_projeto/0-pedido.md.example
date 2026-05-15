@@ -1,0 +1,77 @@
+# Pedido
+
+## Objetivo
+Criar uma plataforma com front-end visual para gerenciamento, configuração, execução e monitoramento de 
+agentes de IA baseados em CrewAI, permitindo evoluir no futuro para uma experiência semelhante ao KaibanJS, 
+porém com backend em Python e orquestração via CrewAI.
+## Contexto
+Atualmente, existe a necessidade de estruturar uma plataforma que permita administrar agentes de IA de 
+forma visual e organizada, sem depender apenas de código ou arquivos manuais.
+A proposta é criar um sistema que permita cadastrar, editar, visualizar e executar agentes, tarefas, tools 
+e crews do CrewAI por meio de uma interface gráfica.
+
+- problema atual é que o uso do CrewAI costuma ficar muito preso à implementação em código, dificultando:
+
+- visualização das relações entre agentes, tarefas e processos;
+
+- gestão operacional do que já foi criado;
+
+- manutenção e evolução da solução;
+
+- uso por pessoas não técnicas;
+
+- rastreabilidade das execuções e resultados.
+
+Além disso, há o interesse de construir algo que possa evoluir depois para uma experiência mais avançada, 
+semelhante ao KaibanJS, com gerenciamento visual mais rico, board de execuções, fluxo entre agentes e acompanhamento 
+operacional, mas mantendo o CrewAI como motor principal no backend.
+
+## O que eu quero
+- Criar um front-end visual para cadastro, edição, organização e visualização de agentes, tarefas, 
+tools, crews e execuções do CrewAI.
+
+- Construir uma arquitetura que permita separar claramente a camada visual da camada de execução,
+ com backend em Python responsável por traduzir 
+as configurações da interface em objetos e execuções do CrewAI.
+
+- Permitir evolução futura da plataforma para um modelo mais avançado de orquestração visual,
+ monitoramento e board operacional, aproximando-se da experiência do KaibanJS, sem abandonar o uso do CrewAI por trás.
+
+## Restrições
+Manter as funcionalidades existentes do projeto atual, caso já exista alguma base implementada.
+
+Não reestruturar sem necessidade; priorizar evolução incremental e segura.
+
+A solução deve ser pensada com backend em Python, preferencialmente FastAPI.
+
+O CrewAI deve continuar sendo o motor principal de agentes e orquestração.
+
+O front-end deve ser preparado para evolução futura, evitando acoplamento excessivo com implementações temporárias.
+
+A arquitetura deve permitir manutenção, expansão e observabilidade.
+
+Evitar decisões que obriguem refazer todo o sistema depois.
+
+Sempre que possível, criar componentes reutilizáveis para agentes, tools, tasks, crews, execuções e logs.
+
+A solução deve considerar uso real de produto, e não apenas uma prova de conceito simplificada.
+
+## Resultado esperado
+Ao final, espera-se uma plataforma com interface visual capaz de:
+
+cadastrar e gerenciar agentes de IA do CrewAI;
+
+cadastrar e gerenciar tarefas, tools e crews;
+
+configurar relações entre os componentes de forma visual;
+
+iniciar execuções e acompanhar status;
+
+visualizar resultados, logs, erros e histórico;
+
+servir como base sólida para evolução futura para um gerenciador visual mais avançado,
+ inspirado em experiências como KaibanJS, porém sustentado por backend Python com CrewAI.
+
+O resultado esperado não é apenas uma tela bonita, mas uma estrutura funcional, escalável e 
+preparada para crescer como produto, com separação clara
+ entre interface, regras de negócio, persistência e execução dos agentes.

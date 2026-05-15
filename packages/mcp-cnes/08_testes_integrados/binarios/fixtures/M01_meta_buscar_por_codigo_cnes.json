@@ -1,0 +1,30 @@
+{
+  "scenario": "M01 — _meta presente em buscar_por_codigo_cnes (encontrado)",
+  "tool": "buscar_por_codigo_cnes",
+  "version": "1.1",
+  "input": {
+    "codigoCnes": "2077485"
+  },
+  "expected_output": {
+    "data": {
+      "encontrado": true,
+      "estabelecimento": {
+        "codigoCnes": "2077485",
+        "uf": "SP",
+        "vinculoSus": true
+      }
+    },
+    "_meta": {
+      "modo": "cache_local",
+      "fonte": "DATASUS FTP CNES"
+    }
+  },
+  "assertions": [
+    "result.data.encontrado === true",
+    "result._meta !== undefined",
+    "result._meta.modo === 'cache_local'",
+    "result._meta.fonte === 'DATASUS FTP CNES'",
+    "typeof result._meta.defasagem_dias === 'number'",
+    "result._meta.defasagem_dias >= 0"
+  ]
+}

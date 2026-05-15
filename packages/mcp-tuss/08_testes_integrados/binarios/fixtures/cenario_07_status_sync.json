@@ -1,0 +1,22 @@
+{
+  "scenario": "07_dev_status_sincronizacao",
+  "description": "Dev verificando status do cache — versão, total de registros, data sync",
+  "tool": "status_sincronizacao_tuss",
+  "input": {},
+  "expected_output": {
+    "data.cache_vazio": false,
+    "data.tuss22.versao": "202603",
+    "data.tuss22.total_registros_gte": 5900,
+    "data.tuss20.total_registros_gte": 43000,
+    "data.tuss18.total_registros_gte": 3500,
+    "_meta_length": 3
+  },
+  "assertions": [
+    "data.cache_vazio === false",
+    "data.tuss22.versao === '202603'",
+    "data.tuss22.total_registros >= 5900",
+    "data.tuss20.total_registros >= 43000",
+    "data.tuss18.total_registros >= 3500",
+    "Array.isArray(_meta) && _meta.length === 3"
+  ]
+}

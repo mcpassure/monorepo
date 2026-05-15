@@ -1,0 +1,23 @@
+{
+  "name": "@mcpassure/monorepo",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "release": "changeset publish",
+    "version": "changeset version"
+  },
+  "packageManager": "pnpm@10.32.1",
+  "pnpm": {
+    "onlyBuiltDependencies": ["better-sqlite3", "esbuild"]
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.15",
+    "@changesets/cli": "^2.31.0",
+    "@types/node": "^25.8.0",
+    "turbo": "^2.9.14",
+    "typescript": "^5.9.3"
+  }
+}

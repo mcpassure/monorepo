@@ -1,0 +1,16 @@
+{
+  "scenario": "09_tomografia_limit",
+  "description": "Busca parcial por 'tomografia' com limit=5 deve respeitar paginação",
+  "tool": "buscar_procedimento_tuss",
+  "input": { "query": "tomografia", "limit": 5 },
+  "expected_output": {
+    "data_length_gte": 1,
+    "data_length_lte": 5,
+    "_meta.modo": "cache_local"
+  },
+  "assertions": [
+    "data.length >= 1",
+    "data.length <= 5",
+    "_meta.modo === 'cache_local'"
+  ]
+}

@@ -1,0 +1,24 @@
+# Desenvolvimento
+src/
+tests/
+integration-tests/
+evals/
+.biome.json
+tsconfig*.json
+*.test.ts
+
+# Artefatos do processo documental Vetrum
+01_regras_permanentes/
+02_modelos_variaveis_do_projeto/
+
+# Ambiente
+.env
+.env.*
+node_modules/
+
+# CI
+.github/
+
+# Dados locais
+*.db
+integration-tests/results/

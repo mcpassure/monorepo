@@ -1,0 +1,27 @@
+{
+  "scenario": "S02",
+  "description": "Faturista verifica dados cadastrais do InCor para faturamento SUS",
+  "persona": "faturista hospitalar",
+  "tool": "buscar_por_codigo_cnes",
+  "input": {
+    "codigoCnes": "2079046"
+  },
+  "expected_output": {
+    "encontrado": true,
+    "codigoCnes": "2079046",
+    "nomeFantasia": "INCOR INSTITUTO DO CORACAO",
+    "vinculoSus": true,
+    "uf": "SP",
+    "municipio": "SAO PAULO",
+    "source": "local"
+  },
+  "assertions": [
+    "result.encontrado === true",
+    "result.estabelecimento.codigoCnes === '2079046'",
+    "result.estabelecimento.vinculoSus === true",
+    "result.estabelecimento.source === 'local'",
+    "result.estabelecimento.uf === 'SP'"
+  ],
+  "suite": "t02-tools",
+  "test_id": "T03"
+}

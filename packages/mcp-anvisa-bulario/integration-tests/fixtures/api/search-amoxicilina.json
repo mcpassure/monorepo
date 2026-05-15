@@ -1,0 +1,28 @@
+{
+  "content": [
+    {
+      "numProcesso": "25351534966201115",
+      "nomeProduto": "AMOXICILINA",
+      "razaoSocial": "BRAINFARMA INDUSTRIA QUIMICA E FARMACEUTICA S.A",
+      "cnpj": "03560944000134",
+      "expediente": "800001",
+      "idBulaPacienteProtegido": "f7a8b9c0d1e2f7a8b9c0d1e2f7a8b9c0",
+      "idBulaProfissionalProtegido": "c0d1e2f7a8b9c0d1e2f7a8b9c0d1e2f7",
+      "dataAtualizacao": "2023-07-01"
+    },
+    {
+      "numProcesso": "25351112705200613",
+      "nomeProduto": "AMOXICILINA",
+      "razaoSocial": "PRATI DONADUZZI CIA LTDA",
+      "cnpj": "02816696000187",
+      "expediente": "800002",
+      "idBulaPacienteProtegido": "a8b9c0d1e2f3a8b9c0d1e2f3a8b9c0d1",
+      "idBulaProfissionalProtegido": "d1e2f3a8b9c0d1e2f3a8b9c0d1e2f3a8",
+      "dataAtualizacao": "2023-06-01"
+    }
+  ],
+  "totalElements": 2,
+  "number": 0,
+  "size": 10,
+  "totalPages": 1
+}

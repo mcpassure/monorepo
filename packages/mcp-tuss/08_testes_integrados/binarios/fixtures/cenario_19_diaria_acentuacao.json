@@ -1,0 +1,14 @@
+{
+  "scenario": "19_diaria_acentuacao",
+  "description": "buscar_diaria_taxa_tuss busca 'internação' (com acento) deve retornar resultados",
+  "tool": "buscar_diaria_taxa_tuss",
+  "input": { "query": "internação" },
+  "expected_output": {
+    "data_length_gte": 1,
+    "_meta.modo": "cache_local"
+  },
+  "assertions": [
+    "data.length >= 1",
+    "_meta.modo === 'cache_local'"
+  ]
+}

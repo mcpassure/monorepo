@@ -1,0 +1,116 @@
+name: Deps Audit
+
+# Cron semanal: roda toda segunda 03:00 UTC.
+# Abre issue automaticamente se aparecer vulnerabilidade high+.
+# Fecha issue se audit ficar limpo.
+
+on:
+  schedule:
+    - cron: "0 3 * * 1" # toda segunda 03:00 UTC = 00:00 BRT
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  audit:
+    name: Audit semanal de dependências
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run audit (capture report)
+        id: audit
+        continue-on-error: true
+        run: |
+          npm audit --json > audit.json || true
+          vulns=$(jq '.metadata.vulnerabilities.high + .metadata.vulnerabilities.critical' audit.json)
+          echo "high_or_critical=$vulns" >> $GITHUB_OUTPUT
+
+          {
+            echo "## Audit semanal - $(date -u +%Y-%m-%d)"
+            echo ""
+            echo "### Resumo"
+            jq -r '.metadata.vulnerabilities | to_entries[] | "- \(.key): \(.value)"' audit.json
+            echo ""
+            echo "### Detalhes"
+            echo ""
+            echo '```'
+            npm audit || true
+            echo '```'
+            echo ""
+            echo "### Próximos passos"
+            echo ""
+            echo "1. Roda \`npm audit fix\` local"
+            echo "2. Se \`fix --force\` for necessário, avalia breaking change"
+            echo "3. Commit + push + fecha essa issue"
+          } > audit-report.md
+
+      - name: Cria/atualiza issue se high+ encontrado
+        if: steps.audit.outputs.high_or_critical != '0'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('audit-report.md', 'utf8');
+            const title = '[deps-audit] Vulnerabilidades high/critical detectadas';
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'security,deps-audit',
+              state: 'open',
+            });
+
+            if (issues.length > 0) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issues[0].number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['security', 'deps-audit'],
+              });
+            }
+
+      - name: Fecha issue se audit ficou limpo
+        if: steps.audit.outputs.high_or_critical == '0'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'security,deps-audit',
+              state: 'open',
+            });
+            for (const issue of issues) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `Audit do ${new Date().toISOString().slice(0,10)}: **0 vulnerabilidades high/critical**. Fechando.`,
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed',
+              });
+            }

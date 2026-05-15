@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "generated_at": "2026-05-13",
+  "description": "Schema baseline da publicação CBHPM (AMB/CFM)",
+  "note": "CBHPM é publicação paga com restrições autorais maiores. Validação v1 é de disponibilidade apenas (url_reachable). Avalie parecer jurídico antes de uso comercial pesado.",
+  "check": "url_reachable",
+  "probe_url": "https://www.amb.org.br",
+  "expected_http_status": 200,
+  "expected_edition": "6ª edição (2022)",
+  "license_warning": "CBHPM é obra protegida por direitos autorais da AMB. Esta ferramenta inclui apenas dados hierárquicos derivados da correlação oficial ANS.",
+  "upstream_drift_indicators": [
+    "Nova edição publicada (7ª edição ou posterior)",
+    "URL do site AMB alterada",
+    "Site AMB retorna HTTP != 200 por > 24h"
+  ]
+}

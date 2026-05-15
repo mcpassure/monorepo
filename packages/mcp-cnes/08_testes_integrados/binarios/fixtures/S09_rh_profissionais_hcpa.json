@@ -1,0 +1,23 @@
+{
+  "scenario": "S09",
+  "description": "Gestor de RH verifica profissionais com privacidade (CPF mascarado)",
+  "persona": "gestor de recursos humanos",
+  "tool": "listar_profissionais",
+  "input": {
+    "codigoCnes": "4049869"
+  },
+  "expected_output": {
+    "total_min": 1,
+    "cpf_pattern": "^\\*{3}\\.\\d{3}\\.\\d{3}-\\*{2}$"
+  },
+  "assertions": [
+    "result.total >= 1",
+    "result.items.every(p => /^\\*{3}\\.\\d{3}\\.\\d{3}-\\*{2}$/.test(p.cpf ?? ''))",
+    "result.items.every(p => p.codigoCnes === '4049869')",
+    "result.items.every(p => p.nome && p.nome.length > 0)",
+    "result.items.every(p => p.cbo && p.cbo.length > 0)"
+  ],
+  "compliance_note": "CPF nunca exposto em texto limpo — mascarado como ***.XXX.XXX-** antes de qualquer output",
+  "suite": "t05-scenarios",
+  "test_id": "S09"
+}

@@ -1,0 +1,38 @@
+{
+  "name": "vetrum-tuss-integration-tests",
+  "version": "1.0.0",
+  "description": "Testes integrados com dados reais da ANS — vetrum-tuss-mcp",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "download": "tsx bin/01-download-bases.ts",
+    "ingest-local": "tsx bin/01b-ingest-local.ts",
+    "smoke": "tsx bin/02-smoke-tools.ts",
+    "test:codigo": "tsx bin/03-buscar-codigo.ts",
+    "test:descricao": "tsx bin/04-buscar-descricao.ts",
+    "test:cobertura": "tsx bin/05-validar-cobertura.ts",
+    "test:cbhpm": "tsx bin/06-cbhpm.ts",
+    "test:categorias": "tsx bin/07-categorias.ts",
+    "test:obrigatorio": "tsx bin/08-cobertura-obrigatoria.ts",
+    "test:status": "tsx bin/09-status.ts",
+    "simul:faturista": "tsx bin/10-simul-faturista.ts",
+    "simul:auditor": "tsx bin/11-simul-auditor.ts",
+    "simul:dev": "tsx bin/12-simul-dev.ts",
+    "performance": "tsx bin/13-performance.ts",
+    "run-all": "tsx bin/run-all.ts"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.6.0",
+    "exceljs": "^4.4.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^20.14.0",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

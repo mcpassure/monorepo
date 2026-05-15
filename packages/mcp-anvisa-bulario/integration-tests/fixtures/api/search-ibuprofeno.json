@@ -1,0 +1,28 @@
+{
+  "content": [
+    {
+      "numProcesso": "25351080692202315",
+      "nomeProduto": "IBUPROFENO",
+      "razaoSocial": "VITAMEDIC INDUSTRIA FARMACEUTICA LTDA",
+      "cnpj": "03664441000131",
+      "expediente": "900001",
+      "idBulaPacienteProtegido": "b9c0d1e2f3a4b9c0d1e2f3a4b9c0d1e2",
+      "idBulaProfissionalProtegido": "e2f3a4b9c0d1e2f3a4b9c0d1e2f3a4b9",
+      "dataAtualizacao": "2024-06-01"
+    },
+    {
+      "numProcesso": "25351641146200816",
+      "nomeProduto": "IBUPROFENO",
+      "razaoSocial": "GERMED FARMACEUTICA LTDA",
+      "cnpj": "44734671000151",
+      "expediente": "900002",
+      "idBulaPacienteProtegido": "c0d1e2f3a4b5c0d1e2f3a4b5c0d1e2f3",
+      "idBulaProfissionalProtegido": "f3a4b5c0d1e2f3a4b5c0d1e2f3a4b5c0",
+      "dataAtualizacao": "2023-05-01"
+    }
+  ],
+  "totalElements": 2,
+  "number": 0,
+  "size": 10,
+  "totalPages": 1
+}

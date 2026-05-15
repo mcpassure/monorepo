@@ -1,0 +1,37 @@
+name: mcpassure/mcp-anvisa-bulario
+displayName: ANVISA Bulário Eletrônico
+description: >
+  MCP server for querying the ANVISA Electronic Drug Bulletin (Bulário Eletrônico).
+  Search by brand name, active ingredient (DCB/DCI), therapeutic class, or prescription type.
+  Returns structured data with caching for reliable pharmaceutical information in Brazil.
+version: 1.0.0
+license: MIT
+homepage: https://github.com/mcpassure/mcp-anvisa-bulario
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      cachePath:
+        type: string
+        description: Path to the SQLite cache database
+      maxRetries:
+        type: number
+        description: Maximum HTTP retries on failure (default 3)
+    required: []
+  commandFunction: |
+    (config) => ({
+      command: "npx",
+      args: ["-y", "@mcpassure/mcp-anvisa-bulario"],
+      env: {
+        ...(config.cachePath ? { MCPASSURE_CACHE_PATH: config.cachePath } : {}),
+        ...(config.maxRetries ? { MCPASSURE_MAX_RETRIES: String(config.maxRetries) } : {}),
+      }
+    })
+tags:
+  - health
+  - brazil
+  - pharma
+  - anvisa
+  - medications
+  - mcpassure

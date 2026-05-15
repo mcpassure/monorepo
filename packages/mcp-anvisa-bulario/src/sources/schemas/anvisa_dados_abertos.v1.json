@@ -1,0 +1,26 @@
+{
+  "version": "1",
+  "description": "Schema baseline dos campos esperados no dataset CSV ANVISA Dados Abertos (medicamentos registrados). Usado pelo canário diário para detectar drift de schema.",
+  "source_url": "https://dados.gov.br/dados/conjuntos-dados/medicamentos-registrados-no-brasil",
+  "required_fields": [
+    "EXPEDIENTE",
+    "PRODUTO",
+    "LABORATÓRIO",
+    "CNPJ",
+    "PRINCÍPIO ATIVO",
+    "CLASSE TERAPÊUTICA",
+    "TIPO DE PRODUTO",
+    "REGIME PREÇO"
+  ],
+  "field_types": {
+    "EXPEDIENTE": "string",
+    "PRODUTO": "string",
+    "LABORATÓRIO": "string",
+    "CNPJ": "string",
+    "PRINCÍPIO ATIVO": "string",
+    "CLASSE TERAPÊUTICA": "string",
+    "TIPO DE PRODUTO": "string",
+    "REGIME PREÇO": "string"
+  },
+  "notes": "Campos são nomes de colunas do CSV. Encoding esperado: UTF-8 ou ISO-8859-1 (UTF-8 preferido). Separador: ponto-e-vírgula (;). Se qualquer campo obrigatório estiver ausente, o canário deve reportar upstream-drift."
+}

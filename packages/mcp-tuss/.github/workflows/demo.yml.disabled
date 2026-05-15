@@ -1,0 +1,7 @@
+# DESABILITADO em 2026-05-14
+#
+# Motivo: vhs-action@v2 falhou repetidamente com "Failed to install ffmpeg"
+# mesmo com pre-install via apt. GIF passou a ser gerado manualmente no
+# VPS Ubuntu (Hostinger) e commitado direto.
+#
+# Pra reativar: renomear pra demo.yml e investigar.

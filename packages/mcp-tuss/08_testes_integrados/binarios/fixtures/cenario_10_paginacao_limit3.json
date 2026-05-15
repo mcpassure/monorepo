@@ -1,0 +1,14 @@
+{
+  "scenario": "10_paginacao_limit3",
+  "description": "Limite de 3 resultados deve ser respeitado estritamente",
+  "tool": "buscar_procedimento_tuss",
+  "input": { "query": "consulta", "limit": 3 },
+  "expected_output": {
+    "data_length_lte": 3,
+    "_meta.modo": "cache_local"
+  },
+  "assertions": [
+    "data.length <= 3",
+    "_meta.modo === 'cache_local'"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "content": [
+    {
+      "numProcesso": "25351400358202201",
+      "nomeProduto": "ADVIL",
+      "razaoSocial": "PF CONSUMER HEALTHCARE BRAZIL LTDA",
+      "cnpj": "43585865000132",
+      "expediente": "500001",
+      "idBulaPacienteProtegido": "a2b3c4d5e6f7a2b3c4d5e6f7a2b3c4d5",
+      "idBulaProfissionalProtegido": "d5e6f7a2b3c4d5e6f7a2b3c4d5e6f7a2",
+      "dataAtualizacao": "2024-04-01"
+    },
+    {
+      "numProcesso": "25351400604202217",
+      "nomeProduto": "ADVIL 12H",
+      "razaoSocial": "PF CONSUMER HEALTHCARE BRAZIL LTDA",
+      "cnpj": "43585865000132",
+      "expediente": "500002",
+      "idBulaPacienteProtegido": "b3c4d5e6f7a2b3c4d5e6f7a2b3c4d5e6",
+      "idBulaProfissionalProtegido": "e6f7a2b3c4d5e6f7a2b3c4d5e6f7a2b3",
+      "dataAtualizacao": "2024-04-01"
+    }
+  ],
+  "totalElements": 3,
+  "number": 0,
+  "size": 10,
+  "totalPages": 1
+}

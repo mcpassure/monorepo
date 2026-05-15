@@ -1,0 +1,26 @@
+[
+  {
+    "co_cnes": "2077485",
+    "co_servico": "135",
+    "ds_servico": "TRANSPLANTE DE ORGAOS SOLIDOS E TECIDOS",
+    "co_class_sr": "001",
+    "ds_class_sr": "TRANSPLANTE DE FIGADO",
+    "competencia": "202501"
+  },
+  {
+    "co_cnes": "2077485",
+    "co_servico": "057",
+    "ds_servico": "SERVICO DE DIAGNOSTICO POR IMAGEM",
+    "co_class_sr": "001",
+    "ds_class_sr": "TOMOGRAFIA COMPUTADORIZADA",
+    "competencia": "202501"
+  },
+  {
+    "co_cnes": "2077485",
+    "co_servico": "057",
+    "ds_servico": "SERVICO DE DIAGNOSTICO POR IMAGEM",
+    "co_class_sr": "002",
+    "ds_class_sr": "RESSONANCIA MAGNETICA",
+    "competencia": "202501"
+  }
+]

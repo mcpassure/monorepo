@@ -1,0 +1,76 @@
+name: Upstream Canary
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  canary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Run canary
+        id: canary
+        run: npm run canary
+
+      - name: Open issue on drift
+        if: failure() && steps.canary.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const today = new Date().toISOString().slice(0, 10);
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[upstream-drift] Terminologia mudou em ${today}`,
+              body: [
+                '## Canário detectou divergência upstream',
+                '',
+                `**Data:** ${today}`,
+                `**Run:** ${context.runId}`,
+                '',
+                'Ver logs do workflow para detalhes da terminologia afetada.',
+                '',
+                '### Ações necessárias',
+                '1. Verificar qual terminologia mudou (TUSS, Rol ANS ou CBHPM)',
+                '2. Consultar `docs/pt-br/runbook-fonte.md` para instruções',
+                '3. Atualizar schema baseline em `src/sources/schemas/` se necessário',
+                '4. Disparar `npm run sync` após correção',
+              ].join('\n'),
+              labels: ['upstream-drift'],
+            });
+
+      - name: Open issue on network failure
+        if: failure() && steps.canary.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const today = new Date().toISOString().slice(0, 10);
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[upstream-down] Fonte offline em ${today}`,
+              body: `Canário não conseguiu acessar uma ou mais fontes em ${today}. Pode ser falha temporária de rede. Ver logs.`,
+              labels: ['upstream-down'],
+            });
+        continue-on-error: true
+
+      - name: Update STATUS.md on success
+        if: success()
+        run: |
+          echo "<!-- Atualizado automaticamente pelo canário. Não editar manualmente. -->" > STATUS.md
+          echo "Last canary OK: $(date -u +%FT%TZ)" >> STATUS.md
+          git config user.name "mcpassure-bot"
+          git config user.email "bot@mcpassure.com.br"
+          git add STATUS.md
+          git diff --staged --quiet || git commit -m "chore: update STATUS.md after canary [skip ci]"
+          git push

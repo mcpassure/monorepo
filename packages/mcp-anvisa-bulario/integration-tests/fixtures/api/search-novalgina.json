@@ -1,0 +1,28 @@
+{
+  "content": [
+    {
+      "numProcesso": "25351617747202347",
+      "nomeProduto": "NOVALGINA",
+      "razaoSocial": "OPELLA HEALTHCARE BRAZIL LTDA",
+      "cnpj": "56998982000141",
+      "expediente": "100007",
+      "idBulaPacienteProtegido": "a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4",
+      "idBulaProfissionalProtegido": "f6e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3",
+      "dataAtualizacao": "2024-03-15"
+    },
+    {
+      "numProcesso": "25351304473202248",
+      "nomeProduto": "NOVALGINA FLASH",
+      "razaoSocial": "OPELLA HEALTHCARE BRAZIL LTDA",
+      "cnpj": "56998982000141",
+      "expediente": "100008",
+      "idBulaPacienteProtegido": "b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4e5",
+      "idBulaProfissionalProtegido": "e5d4c3b2a1f6e5d4c3b2a1f6e5d4c3b2",
+      "dataAtualizacao": "2024-02-10"
+    }
+  ],
+  "totalElements": 2,
+  "number": 0,
+  "size": 10,
+  "totalPages": 1
+}

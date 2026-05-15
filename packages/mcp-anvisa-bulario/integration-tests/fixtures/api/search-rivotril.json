@@ -1,0 +1,18 @@
+{
+  "content": [
+    {
+      "numProcesso": "25351537388202183",
+      "nomeProduto": "RIVOTRIL",
+      "razaoSocial": "BLANVER FARMOQUIMICA E FARMACEUTICA S.A.",
+      "cnpj": "49686276000127",
+      "expediente": "400001",
+      "idBulaPacienteProtegido": "f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3",
+      "idBulaProfissionalProtegido": "c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6",
+      "dataAtualizacao": "2023-11-15"
+    }
+  ],
+  "totalElements": 1,
+  "number": 0,
+  "size": 10,
+  "totalPages": 1
+}

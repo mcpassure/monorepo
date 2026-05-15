@@ -1,0 +1,30 @@
+{
+  "numProcesso": "25351537388202183",
+  "nomeProduto": "RIVOTRIL",
+  "razaoSocial": "BLANVER FARMOQUIMICA E FARMACEUTICA S.A.",
+  "cnpj": "49686276000127",
+  "tarja": "TARJA PRETA",
+  "principioAtivo": "CLONAZEPAM",
+  "classesTerapeuticas": [
+    {
+      "descricao": "ANTICONVULSIVANTES"
+    },
+    {
+      "descricao": "BENZODIAZEPINICOS"
+    }
+  ],
+  "idBulaPacienteProtegido": "f6a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3",
+  "idBulaProfissionalProtegido": "c3b2a1f6e5d4c3b2a1f6e5d4c3b2a1f6",
+  "dataAtualizacao": "2023-11-15",
+  "apresentacoes": [
+    {
+      "descricao": "0,5MG COMPRIMIDO 30 UNIDADES"
+    },
+    {
+      "descricao": "2MG COMPRIMIDO 30 UNIDADES"
+    },
+    {
+      "descricao": "2,5MG/ML SOLUCAO ORAL 10ML"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "version": "v1",
+  "generated_at": "2026-05-13",
+  "description": "Schema baseline da planilha de correlação TUSS-ROL publicada pela ANS",
+  "source_url_pattern": "CorrelaoTUSS.*\\.xlsx",
+  "header_row": 8,
+  "required_columns": [
+    "Código",
+    "Descrição",
+    "Correlação",
+    "Procedimento ROL",
+    "RN",
+    "Vigência",
+    "OD",
+    "AMB",
+    "HCO",
+    "HSO",
+    "PAC",
+    "DUT",
+    "Subgrupo",
+    "Grupo",
+    "Capítulo"
+  ],
+  "column_indices": {
+    "codigo": 0,
+    "descricao": 1,
+    "correlacao": 2,
+    "procedimento_rol": 3,
+    "rn": 4,
+    "vigencia": 5,
+    "od": 6,
+    "amb": 7,
+    "hco": 8,
+    "hso": 9,
+    "pac": 10,
+    "dut": 11,
+    "subgrupo": 12,
+    "grupo": 13,
+    "capitulo": 14
+  },
+  "min_data_rows": 1000,
+  "note": "Se header_row != 8 ou required_columns ausentes, o canário deve sinalizar upstream-drift"
+}

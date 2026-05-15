@@ -1,0 +1,22 @@
+{
+  "scenario": "02_hemograma_codigo",
+  "description": "Faturista buscando hemograma com plaquetas por código exato 40304361",
+  "tool": "buscar_procedimento_tuss",
+  "input": { "codigo": "40304361" },
+  "expected_output": {
+    "data_length": 1,
+    "data[0].codigo": "40304361",
+    "data[0].tabela": "22",
+    "data[0].termo_matches": "hemograma|plaquetas",
+    "_meta.modo": "cache_local",
+    "_meta.competencia": "202603"
+  },
+  "assertions": [
+    "data.length === 1",
+    "data[0].codigo === '40304361'",
+    "data[0].tabela === '22'",
+    "/hemograma|plaquetas/i.test(data[0].termo)",
+    "_meta.modo === 'cache_local'",
+    "_meta.competencia === '202603'"
+  ]
+}

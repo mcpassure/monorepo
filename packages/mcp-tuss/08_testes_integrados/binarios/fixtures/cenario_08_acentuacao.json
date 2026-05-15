@@ -1,0 +1,14 @@
+{
+  "scenario": "08_acentuacao_brasileira",
+  "description": "Busca por 'ressonância' (com acento) deve retornar resultados — valida charset UTF-8",
+  "tool": "buscar_procedimento_tuss",
+  "input": { "query": "ressonância" },
+  "expected_output": {
+    "data_length_gte": 1,
+    "_meta.modo": "cache_local"
+  },
+  "assertions": [
+    "data.length >= 1",
+    "_meta.modo === 'cache_local'"
+  ]
+}

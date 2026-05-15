@@ -1,0 +1,56 @@
+[
+  {
+    "co_cnes": "2077485",
+    "tp_leito": "UTI",
+    "co_leito": "13",
+    "qt_exist": 70,
+    "qt_sus": 70,
+    "qt_nsus": 0,
+    "competencia": "202501"
+  },
+  {
+    "co_cnes": "2077485",
+    "tp_leito": "UTI",
+    "co_leito": "14",
+    "qt_exist": 40,
+    "qt_sus": 40,
+    "qt_nsus": 0,
+    "competencia": "202501"
+  },
+  {
+    "co_cnes": "2077485",
+    "tp_leito": "UTI",
+    "co_leito": "16",
+    "qt_exist": 20,
+    "qt_sus": 20,
+    "qt_nsus": 0,
+    "competencia": "202501"
+  },
+  {
+    "co_cnes": "2077485",
+    "tp_leito": "UTI",
+    "co_leito": "17",
+    "qt_exist": 15,
+    "qt_sus": 15,
+    "qt_nsus": 0,
+    "competencia": "202501"
+  },
+  {
+    "co_cnes": "2077485",
+    "tp_leito": "CLINICO",
+    "co_leito": "02",
+    "qt_exist": 450,
+    "qt_sus": 450,
+    "qt_nsus": 0,
+    "competencia": "202501"
+  },
+  {
+    "co_cnes": "2077485",
+    "tp_leito": "CIRURGICO",
+    "co_leito": "01",
+    "qt_exist": 200,
+    "qt_sus": 200,
+    "qt_nsus": 0,
+    "competencia": "202501"
+  }
+]

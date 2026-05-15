@@ -1,0 +1,34 @@
+[
+  {
+    "co_cnes": "2077485",
+    "co_equip": "031",
+    "ds_equip": "RESSONANCIA MAGNETICA",
+    "qt_exist": 4,
+    "qt_uso": 4,
+    "competencia": "202501"
+  },
+  {
+    "co_cnes": "2077485",
+    "co_equip": "032",
+    "ds_equip": "TOMOGRAFO COMPUTADORIZADO",
+    "qt_exist": 6,
+    "qt_uso": 5,
+    "competencia": "202501"
+  },
+  {
+    "co_cnes": "2077485",
+    "co_equip": "025",
+    "ds_equip": "MAMOGRAFO",
+    "qt_exist": 3,
+    "qt_uso": 3,
+    "competencia": "202501"
+  },
+  {
+    "co_cnes": "2077485",
+    "co_equip": "033",
+    "ds_equip": "ULTRASSONOGRAFO",
+    "qt_exist": 12,
+    "qt_uso": 10,
+    "competencia": "202501"
+  }
+]

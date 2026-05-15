@@ -1,0 +1,20 @@
+{
+  "scenario": "S10",
+  "description": "Sistema passa CNES inválido (10 dígitos) — deve retornar erro estruturado sem crash",
+  "persona": "sistema/dev healthtech",
+  "tool": "buscar_por_codigo_cnes",
+  "input": {
+    "codigoCnes": "0000100001"
+  },
+  "expected_output": {
+    "is_error": true,
+    "error_message_contains": "7"
+  },
+  "assertions": [
+    "response.isError === true || response.content[0].text.includes('inválido') || response.content[0].text.includes('7')",
+    "server_does_not_crash === true"
+  ],
+  "notes": "Zod schema CodigoCnesSchema rejeita qualquer string que não seja exatamente /^\\d{7}$/",
+  "suite": "t02-tools",
+  "test_id": "T04"
+}

@@ -1,0 +1,18 @@
+{
+  "scenario": "01_busca_consulta_medica",
+  "description": "Médico buscando código TUSS de consulta médica por query",
+  "tool": "buscar_procedimento_tuss",
+  "input": { "query": "consulta", "limit": 20 },
+  "expected_output": {
+    "data_length_gte": 1,
+    "data_includes_codigo": "10101012",
+    "_meta.modo": "cache_local",
+    "_meta.competencia": "202603"
+  },
+  "assertions": [
+    "data.length >= 1",
+    "data.some(r => r.codigo === '10101012')",
+    "_meta.modo === 'cache_local'",
+    "_meta.competencia === '202603'"
+  ]
+}

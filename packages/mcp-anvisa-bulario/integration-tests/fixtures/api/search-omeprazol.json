@@ -1,0 +1,18 @@
+{
+  "content": [
+    {
+      "numProcesso": "25351693344201480",
+      "nomeProduto": "OMEPRAZOL",
+      "razaoSocial": "SANOFI MEDLEY FARMACEUTICA LTDA.",
+      "cnpj": "56998982000220",
+      "expediente": "1000001",
+      "idBulaPacienteProtegido": "d1e2f3a4b5c6d1e2f3a4b5c6d1e2f3a4",
+      "idBulaProfissionalProtegido": "a4b5c6d1e2f3a4b5c6d1e2f3a4b5c6d1",
+      "dataAtualizacao": "2024-01-10"
+    }
+  ],
+  "totalElements": 1,
+  "number": 0,
+  "size": 10,
+  "totalPages": 1
+}

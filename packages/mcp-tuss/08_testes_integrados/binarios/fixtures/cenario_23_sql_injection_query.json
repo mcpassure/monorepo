@@ -1,0 +1,17 @@
+{
+  "scenario": "23_sql_injection_query",
+  "description": "Input de SQL injection via campo 'query' deve ser tratado como busca literal, sem vazar dados nem causar crash",
+  "tool": "buscar_procedimento_tuss",
+  "input": {
+    "query": "' OR '1'='1"
+  },
+  "expected_output": {
+    "data_is_array": true,
+    "no_exception": true
+  },
+  "assertions": [
+    "Array.isArray(data) === true",
+    "_meta presente",
+    "parameterized query prevents injection (prepared statement)"
+  ]
+}

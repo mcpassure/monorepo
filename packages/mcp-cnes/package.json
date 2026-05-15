@@ -1,0 +1,68 @@
+{
+  "name": "@mcpassure/mcp-cnes",
+  "version": "0.1.1",
+  "mcpName": "io.github.mcpassure/mcp-cnes",
+  "description": "MCP server para consulta ao CNES — Cadastro Nacional de Estabelecimentos de Saúde",
+  "license": "MIT",
+  "author": "MCPAssure Brasil",
+  "homepage": "https://github.com/mcpassure/mcp-cnes",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcpassure/mcp-cnes.git"
+  },
+  "keywords": [
+    "mcp",
+    "cnes",
+    "datasus",
+    "saude",
+    "healthtech",
+    "brasil",
+    "model-context-protocol",
+    "mcpassure"
+  ],
+  "type": "module",
+  "bin": {
+    "mcp-cnes": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist/**",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsx src/index.ts",
+    "sync": "tsx src/sync/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "biome check src tests evals",
+    "lint:fix": "biome check --write src tests evals",
+    "format": "biome format --write src tests evals",
+    "typecheck": "tsc --noEmit",
+    "test:integration": "tsx integration-tests/bin/run-all.ts",
+    "test:integration:offline": "tsx integration-tests/bin/run-all.ts --offline",
+    "demo": "tsx scripts/demo.ts",
+    "canary": "tsx scripts/canary.ts",
+    "prepublishOnly": "npm run lint && npm run typecheck && npm run test && npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "aws4fetch": "^1.0.20",
+    "basic-ftp": "^6.0.1",
+    "better-sqlite3": "^12.10.0",
+    "iconv-lite": "^0.7.2",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.15",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.10.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.6"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

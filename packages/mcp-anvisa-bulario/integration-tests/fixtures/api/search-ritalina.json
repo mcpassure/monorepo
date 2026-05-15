@@ -1,0 +1,18 @@
+{
+  "content": [
+    {
+      "numProcesso": "2599200126855",
+      "nomeProduto": "RITALINA",
+      "razaoSocial": "NOVARTIS BIOCIENCIAS S.A",
+      "cnpj": "56994502000161",
+      "expediente": "600001",
+      "idBulaPacienteProtegido": "c4d5e6f7a2b3c4d5e6f7a2b3c4d5e6f7",
+      "idBulaProfissionalProtegido": "f7a2b3c4d5e6f7a2b3c4d5e6f7a2b3c4",
+      "dataAtualizacao": "2024-05-01"
+    }
+  ],
+  "totalElements": 1,
+  "number": 0,
+  "size": 10,
+  "totalPages": 1
+}

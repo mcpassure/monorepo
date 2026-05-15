@@ -1,0 +1,14 @@
+{
+  "scenario": "14_medicamento_inexistente",
+  "description": "Medicamento com código 00000000 (inexistente) retorna array vazio sem lançar exceção",
+  "tool": "buscar_medicamento_tuss",
+  "input": { "codigo": "00000000" },
+  "expected_output": {
+    "data_length": 0,
+    "_meta.modo": "cache_local"
+  },
+  "assertions": [
+    "data.length === 0",
+    "_meta.modo === 'cache_local'"
+  ]
+}

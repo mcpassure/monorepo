@@ -1,0 +1,70 @@
+{
+  "name": "@mcpassure/mcp-anvisa-bulario",
+  "version": "2.0.0",
+  "mcpName": "io.github.mcpassure/mcp-anvisa-bulario",
+  "description": "MCP server para consulta do Bulário Eletrônico da ANVISA via CSV oficial",
+  "license": "MIT",
+  "author": "MCPAssure Brasil",
+  "homepage": "https://github.com/mcpassure/mcp-anvisa-bulario",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcpassure/mcp-anvisa-bulario.git"
+  },
+  "keywords": [
+    "mcp",
+    "anvisa",
+    "bulario",
+    "medicamentos",
+    "farmacovigilancia",
+    "saude",
+    "healthtech",
+    "brasil",
+    "model-context-protocol",
+    "mcpassure"
+  ],
+  "type": "module",
+  "bin": {
+    "mcp-anvisa-bulario": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist/**",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "tsx integration-tests/bin/run-all.ts",
+    "test:integration:offline": "tsx integration-tests/bin/run-all.ts --offline",
+    "lint": "biome check src tests evals integration-tests test-utils",
+    "lint:fix": "biome check --write src tests evals integration-tests test-utils",
+    "format": "biome format --write src tests evals integration-tests test-utils",
+    "typecheck": "tsc --noEmit",
+    "sync": "tsx src/scripts/sync.ts",
+    "evals": "tsx evals/runner.ts",
+    "canary": "tsx src/scripts/canary.ts",
+    "demo": "tsx scripts/demo.ts",
+    "prepublishOnly": "npm run lint && npm run typecheck && npm run test && npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "aws4fetch": "^1.0.20",
+    "better-sqlite3": "^12.10.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.15",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.10.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.6"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

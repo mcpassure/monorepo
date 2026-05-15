@@ -1,0 +1,55 @@
+{
+  "name": "@mcpassure/mcp-tuss",
+  "version": "1.1.0",
+  "description": "MCP server para consulta integrada de TUSS, CBHPM e Rol de Procedimentos ANS — MCPAssure",
+  "keywords": ["mcp", "tuss", "cbhpm", "ans", "saude-suplementar", "saude", "brazil", "healthcare", "mcpassure"],
+  "author": "MCPAssure",
+  "license": "MIT",
+  "homepage": "https://github.com/mcpassure/mcp-tuss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcpassure/mcp-tuss.git"
+  },
+  "type": "module",
+  "bin": {
+    "mcpassure-mcp-tuss": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "sync": "tsx scripts/sync.ts",
+    "canary": "tsx scripts/canary.ts",
+    "lint": "eslint src scripts evals tests --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run tests",
+    "test:watch": "vitest tests",
+    "evals": "vitest run evals",
+    "prepublishOnly": "npm run typecheck && npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "better-sqlite3": "^9.6.0",
+    "exceljs": "^4.4.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "@types/node": "^20.14.0",
+    "@typescript-eslint/eslint-plugin": "^7.13.0",
+    "@typescript-eslint/parser": "^7.13.0",
+    "eslint": "^8.57.0",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.2",
+    "vitest": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

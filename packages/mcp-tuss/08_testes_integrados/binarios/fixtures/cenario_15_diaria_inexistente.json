@@ -1,0 +1,17 @@
+{
+  "scenario": "15_diaria_inexistente",
+  "description": "Busca de diária por código totalmente inexistente deve retornar array vazio com _meta estruturado (sem throw)",
+  "tool": "buscar_diaria_taxa_tuss",
+  "input": {
+    "codigo": "00000000"
+  },
+  "expected_output": {
+    "data_length": 0,
+    "_meta.modo": "cache_local"
+  },
+  "assertions": [
+    "data.length === 0",
+    "_meta.modo === 'cache_local'",
+    "no exception thrown"
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "suite": "06-cbhpm",
+  "descricao": "Testes detalhados — consultar_hierarquia_cbhpm",
+  "executado_em": "2026-05-13T06:47:24.461Z",
+  "total": 6,
+  "passou": 6,
+  "falhou": 0,
+  "skiped": 0,
+  "duracao_total_ms": 2,
+  "casos": [
+    {
+      "id": "T01",
+      "descricao": "10101012 retorna capitulo='PROCEDIMENTOS GERAIS'",
+      "input": {
+        "codigo": "10101012"
+      },
+      "output": {
+        "codigo": "10101012",
+        "capitulo": "PROCEDIMENTOS GERAIS",
+        "grupo": "PROCEDIMENTOS GERAIS"
+      },
+      "resultado": "PASS",
+      "duracao_ms": 1
+    },
+    {
+      "id": "T02",
+      "descricao": "nota_limitacao mandatória sobre porte/UCO presente",
+      "input": {
+        "codigo": "10101012"
+      },
+      "output": {
+        "nota_limitacao_ok": true
+      },
+      "resultado": "PASS",
+      "duracao_ms": 0
+    },
+    {
+      "id": "T03",
+      "descricao": "cbhpm_edicao = '6ª edição (2022)'",
+      "input": {
+        "codigo": "10101012"
+      },
+      "output": {
+        "cbhpm_edicao": "6ª edição (2022)"
+      },
+      "resultado": "PASS",
+      "duracao_ms": 0
+    },
+    {
+      "id": "T05",
+      "descricao": "Código inexistente retorna hierarquia nula sem exceção",
+      "input": {
+        "codigo": "00000000"
+      },
+      "output": {
+        "capitulo": null,
+        "descricao_tuss": null
+      },
+      "resultado": "PASS",
+      "duracao_ms": 0
+    },
+    {
+      "id": "T06",
+      "descricao": "Banco contém hierarquias CBHPM (sanidade do download)",
+      "input": {},
+      "output": {
+        "total_cbhpm": 5966
+      },
+      "resultado": "PASS",
+      "duracao_ms": 1
+    },
+    {
+      "id": "T07",
+      "descricao": "Há múltiplos capítulos CBHPM distintos",
+      "input": {},
+      "output": {
+        "capitulos": [
+          "PROCEDIMENTOS GERAIS",
+          "---",
+          "PROCEDIMENTOS CLÍNICOS AMBULATORIAIS E HOSPITALARES",
+          "PROCEDIMENTOS DIAGNÓSTICOS E TERAPÊUTICOS",
+          "PROCEDIMENTOS CIRÚRGICOS E INVASIVOS",
+          "----",
+          "GENÉTICA"
+        ]
+      },
+      "resultado": "PASS",
+      "duracao_ms": 0
+    }
+  ]
+}

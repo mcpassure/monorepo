@@ -1,0 +1,15 @@
+{
+  "scenario": "12_codigo_inexistente",
+  "description": "Consulta de código totalmente desconhecido retorna array vazio com _meta",
+  "tool": "buscar_procedimento_tuss",
+  "input": { "codigo": "99999999" },
+  "expected_output": {
+    "data_length": 0,
+    "_meta.modo": "cache_local"
+  },
+  "assertions": [
+    "data.length === 0",
+    "_meta.modo === 'cache_local'",
+    "_meta.competencia === '202603'"
+  ]
+}

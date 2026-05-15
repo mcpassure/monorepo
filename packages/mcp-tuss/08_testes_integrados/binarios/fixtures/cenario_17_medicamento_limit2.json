@@ -1,0 +1,14 @@
+{
+  "scenario": "17_medicamento_limit2",
+  "description": "buscar_medicamento_tuss com limit=2 deve respeitar paginação estritamente",
+  "tool": "buscar_medicamento_tuss",
+  "input": { "query": "sodio", "limit": 2 },
+  "expected_output": {
+    "data_length_lte": 2,
+    "_meta.modo": "cache_local"
+  },
+  "assertions": [
+    "data.length <= 2",
+    "_meta.modo === 'cache_local'"
+  ]
+}

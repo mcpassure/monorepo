@@ -1,0 +1,14 @@
+{
+  "scenario": "21_status_competencia",
+  "description": "status_sincronizacao_tuss deve ter disclaimer completo e competencia 202603 em todas as 3 entradas _meta",
+  "tool": "status_sincronizacao_tuss",
+  "input": {},
+  "expected_output": {
+    "disclaimer_min_length": 50,
+    "all_meta_competencia": "202603"
+  },
+  "assertions": [
+    "typeof result.disclaimer === 'string' && result.disclaimer.length >= 50",
+    "result._meta.every(m => m.competencia === '202603')"
+  ]
+}

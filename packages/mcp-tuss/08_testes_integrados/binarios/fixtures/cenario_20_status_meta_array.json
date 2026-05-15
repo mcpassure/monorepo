@@ -1,0 +1,20 @@
+{
+  "scenario": "20_status_meta_array",
+  "description": "status_sincronizacao_tuss deve retornar _meta como array com 3 entradas, cada uma com modo/fonte/defasagem_dias >= 0",
+  "tool": "status_sincronizacao_tuss",
+  "input": {},
+  "expected_output": {
+    "_meta_is_array": true,
+    "_meta_length": 3,
+    "all_have_defasagem_gte_0": true,
+    "all_have_modo": true,
+    "all_have_fonte": true
+  },
+  "assertions": [
+    "Array.isArray(result._meta)",
+    "result._meta.length === 3",
+    "result._meta.every(m => typeof m.defasagem_dias === 'number' && m.defasagem_dias >= 0)",
+    "result._meta.every(m => !!m.modo)",
+    "result._meta.every(m => !!m.fonte)"
+  ]
+}

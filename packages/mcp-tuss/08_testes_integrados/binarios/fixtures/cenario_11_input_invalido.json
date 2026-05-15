@@ -1,0 +1,16 @@
+{
+  "scenario": "11_input_invalido",
+  "description": "Chamada sem codigo nem query deve retornar erro estruturado (não lançar exceção)",
+  "tool": "buscar_procedimento_tuss",
+  "input": {},
+  "expected_output": {
+    "data_length": 0,
+    "error_present": true,
+    "error_message": "Informe `codigo` ou `query`."
+  },
+  "assertions": [
+    "data.length === 0",
+    "typeof result.error === 'string'",
+    "result.error === 'Informe `codigo` ou `query`.'"
+  ]
+}

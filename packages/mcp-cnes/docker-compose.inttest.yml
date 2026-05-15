@@ -1,0 +1,9 @@
+services:
+  inttest:
+    build:
+      context: .
+      dockerfile: Dockerfile.inttest
+    environment:
+      - CI=true
+    # Mantém o container após o run para inspeção dos resultados
+    # docker compose -f docker-compose.inttest.yml logs inttest

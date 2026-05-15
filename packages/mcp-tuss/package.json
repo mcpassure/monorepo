@@ -1,0 +1,71 @@
+{
+  "name": "@mcpassure/mcp-tuss",
+  "version": "0.1.2",
+  "mcpName": "io.github.mcpassure/mcp-tuss",
+  "description": "MCP server para consulta integrada de TUSS e Rol de Procedimentos ANS",
+  "license": "MIT",
+  "author": "MCPAssure Brasil",
+  "homepage": "https://github.com/mcpassure/mcp-tuss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mcpassure/mcp-tuss.git"
+  },
+  "keywords": [
+    "mcp",
+    "tuss",
+    "ans",
+    "rol",
+    "rol-ans",
+    "saude-suplementar",
+    "saude",
+    "healthtech",
+    "brasil",
+    "model-context-protocol",
+    "mcpassure"
+  ],
+  "type": "module",
+  "bin": {
+    "mcp-tuss": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist/**",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "sync": "tsx src/sync/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:integration": "vitest run tests/integration",
+    "lint": "biome check src tests evals scripts",
+    "lint:fix": "biome check --write src tests evals scripts",
+    "format": "biome format --write src tests evals scripts",
+    "typecheck": "tsc --noEmit",
+    "canary": "tsx scripts/canary.ts",
+    "demo": "tsx scripts/demo.ts",
+    "prepublishOnly": "npm run lint && npm run typecheck && npm run test && npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "aws4fetch": "^1.0.20",
+    "better-sqlite3": "^12.10.0",
+    "unzipper": "^0.12.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.15",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.10.0",
+    "@types/unzipper": "^0.10.11",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.6"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

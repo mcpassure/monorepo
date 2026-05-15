@@ -1,0 +1,31 @@
+{
+  "scenario": "S03",
+  "description": "Gestor verifica capacidade UTI do HC FMUSP",
+  "persona": "gestor de saúde",
+  "tool": "listar_leitos",
+  "input": {
+    "codigoCnes": "2077485"
+  },
+  "expected_output": {
+    "total_min": 4,
+    "uti_leitos_min": 4,
+    "uti_existentes_min": 100
+  },
+  "assertions": [
+    "result.total >= 4",
+    "result.items.filter(l => l.tipo.includes('UTI')).length >= 4",
+    "result.items.filter(l => l.tipo.includes('UTI')).reduce((s, l) => s + l.leitosExistentes, 0) >= 100",
+    "result.items.every(l => l.codigoCnes === '2077485')"
+  ],
+  "seed_data": {
+    "uti_types": [
+      "UTI Adulto - Tipo II",
+      "UTI Adulto - Tipo III",
+      "UTI Pediátrica",
+      "UTI Neonatal"
+    ],
+    "uti_total_exist": 580
+  },
+  "suite": "t05-scenarios",
+  "test_id": "S03"
+}

@@ -1,0 +1,18 @@
+{
+  "scenario": "03_dipirona_query",
+  "description": "Farmacêutico buscando medicamento Dipirona por query de texto",
+  "tool": "buscar_medicamento_tuss",
+  "input": { "query": "Dipirona", "limit": 10 },
+  "expected_output": {
+    "data_length_gte": 1,
+    "data_all_tabela": "20",
+    "data_some_contains": "dipirona",
+    "_meta.modo": "cache_local"
+  },
+  "assertions": [
+    "data.length >= 1",
+    "data.every(r => r.tabela === '20')",
+    "data.some(r => r.termo.toLowerCase().includes('dipirona'))",
+    "_meta.modo === 'cache_local'"
+  ]
+}

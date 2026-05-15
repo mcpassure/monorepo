@@ -1,0 +1,29 @@
+[
+  {
+    "co_cnes": "2077485",
+    "cpf_prof": "12345678901",
+    "nm_prof": "MEDICO TESTE A",
+    "co_cbo": "225142",
+    "ds_cbo": "MEDICO CLINICO",
+    "tp_vinculo": "01",
+    "competencia": "202501"
+  },
+  {
+    "co_cnes": "2077485",
+    "cpf_prof": "98765432100",
+    "nm_prof": "ENFERMEIRO TESTE B",
+    "co_cbo": "223505",
+    "ds_cbo": "ENFERMEIRO",
+    "tp_vinculo": "01",
+    "competencia": "202501"
+  },
+  {
+    "co_cnes": "2077485",
+    "cpf_prof": "11122233344",
+    "nm_prof": "MEDICO TESTE C",
+    "co_cbo": "225265",
+    "ds_cbo": "MEDICO CIRURGIAO",
+    "tp_vinculo": "05",
+    "competencia": "202501"
+  }
+]

@@ -1,0 +1,36 @@
+# Não publicar no npm: fontes, testes, configs de dev
+src/
+tests/
+integration-tests/
+evals/
+docs/
+
+# Configs TypeScript / lint
+tsconfig*.json
+biome.json
+vitest.config.ts
+
+# Test fixtures
+*.test.ts
+*.spec.ts
+
+# Documentação interna do projeto
+DEPS.md
+STATUS.md
+TODO.md
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
+SECURITY.md
+smithery.yaml
+
+# Ambiente
+.env
+.env.*
+node_modules/
+
+# CI
+.github/
+
+# Dados locais
+*.db
+data/

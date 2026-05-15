@@ -1,0 +1,9 @@
+node_modules
+dist
+.git
+*.log
+integration-tests/results
+08_testes_integrados/resultados
+coverage
+.env
+.env.*

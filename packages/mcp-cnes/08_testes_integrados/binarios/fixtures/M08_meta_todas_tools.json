@@ -1,0 +1,22 @@
+{
+  "scenario": "M08 — _meta modo=cache_local em todas as 8 tools com dataset populado",
+  "tools": [
+    "buscar_por_codigo_cnes",
+    "buscar_por_nome",
+    "buscar_por_municipio",
+    "buscar_por_tipo",
+    "listar_profissionais",
+    "listar_leitos",
+    "listar_equipamentos",
+    "listar_servicos"
+  ],
+  "version": "1.1",
+  "assertions": [
+    "result._meta !== undefined",
+    "result.data !== undefined",
+    "result._meta.modo === 'cache_local'",
+    "result._meta.fonte === 'DATASUS FTP CNES'",
+    "typeof result._meta.defasagem_dias === 'number'",
+    "result._meta.status === 'ok' || result._meta.status === 'stale'"
+  ]
+}

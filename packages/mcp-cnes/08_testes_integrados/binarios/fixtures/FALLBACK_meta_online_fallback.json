@@ -1,0 +1,21 @@
+{
+  "scenario": "Fallback chain — _meta.modo=online_fallback quando dataset vazio",
+  "tool": "buscar_por_codigo_cnes",
+  "version": "1.1",
+  "precondition": "dataset SQLite vazio (banco recém-criado sem sync)",
+  "input": {
+    "codigoCnes": "2077485"
+  },
+  "expected_output": {
+    "_meta": {
+      "modo": "online_fallback",
+      "fonte": "REST TCU fallback"
+    }
+  },
+  "assertions": [
+    "result._meta.modo === 'online_fallback'",
+    "result._meta.fonte === 'REST TCU fallback'",
+    "result._meta !== undefined"
+  ],
+  "notes": "Quando dataset vazio, CnesRepository delega para fallback/client.ts (REST TCU). Se TCU offline, retorna encontrado=false mas ainda com _meta de fallback."
+}

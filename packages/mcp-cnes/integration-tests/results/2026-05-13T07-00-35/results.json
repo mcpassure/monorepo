@@ -1,0 +1,719 @@
+{
+  "summary": {
+    "total": 101,
+    "passed": 101,
+    "failed": 0,
+    "skipped": 0,
+    "durationMs": 719
+  },
+  "timestamp": "2026-05-13T07:00:36.933Z",
+  "results": [
+    {
+      "id": "Q01",
+      "name": "porCodigo retorna HC FMUSP",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q02",
+      "name": "porCodigo retorna InCor",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q03",
+      "name": "porCodigo retorna null para CNES inexistente",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q04",
+      "name": "porCodigo co_municipio normalizado para 6 dígitos",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q05",
+      "name": "porNome busca parcial case-insensitive",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q06",
+      "name": "porNome filtra por UF SP",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "Q07",
+      "name": "porNome filtra por UF SC retorna HU UFSC",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q08",
+      "name": "porNome UF inexistente retorna array vazio",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q09",
+      "name": "porNome respeita limit",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q10",
+      "name": "porMunicipio São Paulo (355030)",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q11",
+      "name": "porMunicipio Florianópolis (420540)",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q12",
+      "name": "porMunicipio com filtro tipo hospital",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q13",
+      "name": "porMunicipio IBGE inexistente retorna vazio",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q14",
+      "name": "porTipo hospitais em SP",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "Q15",
+      "name": "porTipo hospitais em RJ retorna INCA",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q16",
+      "name": "porTipo tipo inexistente retorna vazio",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q17",
+      "name": "leitosPorCnes retorna leitos do HC FMUSP",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q18",
+      "name": "leitosPorCnes UTI adulto existente no HC FMUSP",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q19",
+      "name": "leitosPorCnes leitos UTI têm qt_exist > 0",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q20",
+      "name": "leitosPorCnes InCor tem UTI Coronariana",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q21",
+      "name": "leitosPorCnes CNES sem leitos retorna vazio",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q22",
+      "name": "equipamentosPorCnes retorna equipamentos do HC FMUSP",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q23",
+      "name": "equipamentosPorCnes HC FMUSP tem ressonância magnética (031)",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q24",
+      "name": "equipamentosPorCnes HC FMUSP tem tomógrafo (032)",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q25",
+      "name": "equipamentosPorCnes INCA tem equipamento de radioterapia (017)",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q26",
+      "name": "equipamentosPorCnes CNES sem equipamentos retorna vazio",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q27",
+      "name": "profissionaisPorCnes retorna profissionais do HC FMUSP",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q28",
+      "name": "profissionaisPorCnes CPFs estão mascarados",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q29",
+      "name": "profissionaisPorCnes HU UFSC tem profissionais",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q30",
+      "name": "profissionaisPorCnes campos obrigatórios preenchidos",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q31",
+      "name": "servicosPorCnes retorna serviços do HC FMUSP",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q32",
+      "name": "servicosPorCnes HC FMUSP tem serviço de oncologia",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q33",
+      "name": "servicosPorCnes INCA tem radioterapia",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q34",
+      "name": "servicosPorCnes co_cnes correto em todos os registros",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q35",
+      "name": "servicosPorCnes CNES sem serviços retorna vazio",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q36",
+      "name": "co_municipio de São Paulo é 355030 (6 dígitos)",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "Q37",
+      "name": "HU UFSC está em Florianópolis (SC)",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q38",
+      "name": "INCA está no Rio de Janeiro (RJ)",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q39",
+      "name": "vinculoSus é booleano nos estabelecimentos",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "Q40",
+      "name": "coordinates são números quando presentes",
+      "suite": "t01-queries",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T01",
+      "name": "buscar_por_codigo_cnes: HC FMUSP retorna encontrado=true",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 3
+    },
+    {
+      "id": "T02",
+      "name": "buscar_por_codigo_cnes: CNES inexistente retorna encontrado=false",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T03",
+      "name": "buscar_por_codigo_cnes: InCor retorna hospital especializado",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "T04",
+      "name": "buscar_por_codigo_cnes: CNES inválido (não 7 dígitos) retorna erro de validação",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T05",
+      "name": "buscar_por_nome: 'clinicas' retorna resultados em SP",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "T06",
+      "name": "buscar_por_nome: limite máximo 50",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "T07",
+      "name": "buscar_por_nome: nome com menos de 3 caracteres retorna erro",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T08",
+      "name": "buscar_por_nome: busca sem UF retorna resultados",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "T09",
+      "name": "buscar_por_municipio: São Paulo (355030) retorna estabelecimentos",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "T10",
+      "name": "buscar_por_municipio: Florianópolis (420540) retorna HU UFSC",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T11",
+      "name": "buscar_por_municipio: IBGE inexistente retorna total 0",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T12",
+      "name": "buscar_por_tipo: hospitais em SP retornam resultados",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "T13",
+      "name": "buscar_por_tipo: hospitais em SC retornam HU UFSC",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T14",
+      "name": "buscar_por_tipo: tipo com município filtra corretamente",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T15",
+      "name": "listar_profissionais: HC FMUSP tem profissionais",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T16",
+      "name": "listar_profissionais: CPFs todos mascarados",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T17",
+      "name": "listar_profissionais: CNES sem profissionais retorna total 0",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T18",
+      "name": "listar_leitos: HC FMUSP tem leitos UTI",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T19",
+      "name": "listar_leitos: InCor tem UTI Coronariana",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T20",
+      "name": "listar_leitos: INCA tem leitos clínicos e cirúrgicos",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T21",
+      "name": "listar_leitos: CNES sem leitos retorna total 0",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "T22",
+      "name": "listar_equipamentos: HC FMUSP tem equipamentos",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T23",
+      "name": "listar_equipamentos: HC FMUSP tem ressonância (031)",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T24",
+      "name": "listar_equipamentos: INCA tem radioterapia (017)",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "T25",
+      "name": "listar_equipamentos: CNES sem equipamentos retorna total 0",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T26",
+      "name": "listar_servicos: HC FMUSP tem serviços especializados",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T27",
+      "name": "listar_servicos: INCA tem serviço de oncologia",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "T28",
+      "name": "listar_servicos: CNES sem serviços retorna total 0",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "T29",
+      "name": "todas as tools retornam structuredContent",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 3
+    },
+    {
+      "id": "T30",
+      "name": "latência de todas as tools < 500ms com SQLite local",
+      "suite": "t02-tools",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "F01",
+      "name": "buscarPorCodigoCnes: HC FMUSP (2077485) via API",
+      "suite": "t03-fallback",
+      "status": "pass",
+      "durationMs": 16
+    },
+    {
+      "id": "F02",
+      "name": "buscarPorCodigoCnes: CNES inexistente retorna null",
+      "suite": "t03-fallback",
+      "status": "pass",
+      "durationMs": 22
+    },
+    {
+      "id": "F03",
+      "name": "buscarPorNomeFallback: 'hospital das clinicas' retorna resultados",
+      "suite": "t03-fallback",
+      "status": "pass",
+      "durationMs": 10
+    },
+    {
+      "id": "F04",
+      "name": "buscarPorNomeFallback: todos resultados têm source=online_fallback",
+      "suite": "t03-fallback",
+      "status": "pass",
+      "durationMs": 7
+    },
+    {
+      "id": "F05",
+      "name": "buscarPorNomeFallback: codigoCnes tem 7 dígitos",
+      "suite": "t03-fallback",
+      "status": "pass",
+      "durationMs": 8
+    },
+    {
+      "id": "F06",
+      "name": "buscarPorNomeFallback com UF filtra resultados",
+      "suite": "t03-fallback",
+      "status": "pass",
+      "durationMs": 9
+    },
+    {
+      "id": "F07",
+      "name": "diagnóstico: formato codUnidade correto (7 vs 13 dígitos)",
+      "suite": "t03-fallback",
+      "status": "pass",
+      "durationMs": 14
+    },
+    {
+      "id": "FTP01",
+      "name": "listarArquivos ST SP retorna lista não-vazia",
+      "suite": "t04-ftp",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "FTP02",
+      "name": "listarArquivos LT SC retorna arquivos",
+      "suite": "t04-ftp",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "FTP03",
+      "name": "listarArquivos ordena por competência mais recente primeiro",
+      "suite": "t04-ftp",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "FTP04",
+      "name": "listarArquivos nome segue padrão GRUPO+UF+AAAA+MM.dbc",
+      "suite": "t04-ftp",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "FTP05",
+      "name": "listarArquivos PF SP tem competência recente (após 2024)",
+      "suite": "t04-ftp",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "FTP06",
+      "name": "downloadArquivo ST SC baixa arquivo DBC",
+      "suite": "t04-ftp",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "FTP07",
+      "name": "converterDbcParaCsv: blast converte DBC para CSV",
+      "suite": "t04-ftp",
+      "status": "pass",
+      "durationMs": 66
+    },
+    {
+      "id": "FTP08",
+      "name": "ingerirCsv: insere registros de ST SC no banco",
+      "suite": "t04-ftp",
+      "status": "pass",
+      "durationMs": 9
+    },
+    {
+      "id": "FTP09",
+      "name": "ingestão idempotente: re-ingerir mesmo CSV não duplica registros",
+      "suite": "t04-ftp",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "S01",
+      "name": "Médico busca o Hospital das Clínicas de SP pelo nome",
+      "suite": "t05-scenarios",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "S02",
+      "name": "Gestor verifica dados cadastrais do HC FMUSP",
+      "suite": "t05-scenarios",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "S03",
+      "name": "Regulador verifica capacidade UTI do HC FMUSP",
+      "suite": "t05-scenarios",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "S04",
+      "name": "Pesquisador lista hospitais em São Paulo para estudo de rede",
+      "suite": "t05-scenarios",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "S05",
+      "name": "Cardiologista verifica equipamentos do InCor",
+      "suite": "t05-scenarios",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "S06",
+      "name": "Gestor em SC verifica hospitais de Florianópolis",
+      "suite": "t05-scenarios",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "S07",
+      "name": "Oncologista localiza centros de oncologia",
+      "suite": "t05-scenarios",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "S08",
+      "name": "Pesquisador verifica serviços de transplante disponíveis",
+      "suite": "t05-scenarios",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "S09",
+      "name": "Gestor RH verifica profissionais do HCPA com privacidade",
+      "suite": "t05-scenarios",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "S10",
+      "name": "Sistema verifica CNES inválido sem crash",
+      "suite": "t05-scenarios",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "S11",
+      "name": "Pesquisador mapeia rede assistencial de SP por tipo",
+      "suite": "t05-scenarios",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "S12",
+      "name": "Radioterapia: verificar equipamentos do INCA",
+      "suite": "t05-scenarios",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "S13",
+      "name": "Múltiplos hospitais em DF para comparação de leitos UTI",
+      "suite": "t05-scenarios",
+      "status": "pass",
+      "durationMs": 1
+    },
+    {
+      "id": "S14",
+      "name": "Busca por nome 'einstein' encontra hospital",
+      "suite": "t05-scenarios",
+      "status": "pass",
+      "durationMs": 0
+    },
+    {
+      "id": "S15",
+      "name": "Performance: 8 queries sequenciais < 2 segundos total",
+      "suite": "t05-scenarios",
+      "status": "pass",
+      "durationMs": 2
+    }
+  ]
+}
