@@ -1,0 +1,35 @@
+{
+  "source": "ANVISA / Dados Abertos — DADOS_ABERTOS_MEDICAMENTOS.csv",
+  "capturedAt": "2026-05-15T00:00:00.000Z",
+  "schema": {
+    "csvUrl": "https://dados.anvisa.gov.br/dados/DADOS_ABERTOS_MEDICAMENTOS.csv",
+    "encoding": "Latin1",
+    "separator": ";",
+    "expectedColumns": [
+      "TIPO_PRODUTO",
+      "NOME_PRODUTO",
+      "DATA_FINALIZACAO_PROCESSO",
+      "CATEGORIA_REGULATORIA",
+      "NUMERO_REGISTRO_PRODUTO",
+      "DATA_VENCIMENTO_REGISTRO",
+      "NUMERO_PROCESSO",
+      "CLASSE_TERAPEUTICA",
+      "EMPRESA_DETENTORA_REGISTRO",
+      "SITUACAO_REGISTRO",
+      "PRINCIPIO_ATIVO"
+    ],
+    "columnCount": 11,
+    "minSizeBytes": 1000000,
+    "minRows": 10000,
+    "dbTable": {
+      "name": "medicamentos",
+      "columns": [
+        "rowid", "tipo_produto", "nome_produto", "data_finalizacao",
+        "categoria_regulatoria", "numero_registro", "data_vencimento",
+        "numero_processo", "classe_terapeutica", "empresa",
+        "situacao_registro", "principio_ativo"
+      ]
+    },
+    "notes": "CSV publicado por ANVISA com separador ';' e encoding Latin1. Drift detectado quando numero de colunas muda, tamanho do CSV cai abaixo de 1MB, ou colunas criticas somem."
+  }
+}

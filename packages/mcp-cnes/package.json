@@ -45,6 +45,7 @@
     "test:integration:offline": "tsx integration-tests/bin/run-all.ts --offline",
     "demo": "tsx scripts/demo.ts",
     "canary": "tsx scripts/canary.ts",
+    "schema:check": "tsx scripts/schema-check.ts",
     "prepublishOnly": "npm run lint && npm run typecheck && npm run test && npm run build"
   },
   "dependencies": {

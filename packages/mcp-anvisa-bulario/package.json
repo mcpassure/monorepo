@@ -48,6 +48,7 @@
     "sync": "tsx src/scripts/sync.ts",
     "evals": "tsx evals/runner.ts",
     "canary": "tsx src/scripts/canary.ts",
+    "schema:check": "tsx scripts/schema-check.ts",
     "demo": "tsx scripts/demo.ts",
     "prepublishOnly": "npm run lint && npm run typecheck && npm run test && npm run build"
   },

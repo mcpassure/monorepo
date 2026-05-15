@@ -1,0 +1,50 @@
+name: Schema Drift Detection
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"  # toda segunda 03h BRT
+  workflow_dispatch:
+
+jobs:
+  drift-check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package: [mcp-tuss, mcp-cnes, mcp-anvisa-bulario]
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - name: Schema check for ${{ matrix.package }}
+        id: check
+        continue-on-error: true
+        run: pnpm --filter @mcpassure/${{ matrix.package }} schema:check
+
+      - name: Open issue on drift
+        if: steps.check.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pkg = '${{ matrix.package }}';
+            const date = new Date().toISOString().slice(0, 10);
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: `upstream-drift,${pkg}`,
+              state: 'open',
+            });
+            if (existing.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `[upstream-drift] ${pkg} — schema mudou em ${date}`,
+                body: `Schema-drift detection falhou para \`@mcpassure/${pkg}\`.\n\nFonte upstream mudou estrutura. Investigar logs da action e ajustar parser.\n\nRun: \`pnpm --filter @mcpassure/${pkg} schema:check\``,
+                labels: ['upstream-drift', pkg]
+              });
+            }

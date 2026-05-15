@@ -1,0 +1,56 @@
+{
+  "source": "ANS / TUSS (Terminologia Unificada da Saúde Suplementar)",
+  "capturedAt": "2026-05-15T00:00:00.000Z",
+  "schema": {
+    "tables": [
+      {
+        "name": "tuss_22",
+        "description": "TUSS versão 22 (tabela ANS padrão TISS vigente)",
+        "columns": [
+          { "name": "codigo", "type": "TEXT", "primaryKey": true },
+          { "name": "termo", "type": "TEXT", "notNull": true },
+          { "name": "data_inicio", "type": "TEXT" },
+          { "name": "data_fim", "type": "TEXT" },
+          { "name": "versao", "type": "TEXT" },
+          { "name": "extra_json", "type": "TEXT", "notNull": true }
+        ],
+        "minRows": 5000,
+        "maxRows": 50000
+      },
+      {
+        "name": "tuss_20",
+        "description": "TUSS versão 20",
+        "columns": [
+          { "name": "codigo", "type": "TEXT", "primaryKey": true },
+          { "name": "termo", "type": "TEXT", "notNull": true },
+          { "name": "data_inicio", "type": "TEXT" },
+          { "name": "data_fim", "type": "TEXT" },
+          { "name": "versao", "type": "TEXT" },
+          { "name": "extra_json", "type": "TEXT", "notNull": true }
+        ],
+        "minRows": 1000,
+        "maxRows": 50000
+      },
+      {
+        "name": "tuss_18",
+        "description": "TUSS versão 18",
+        "columns": [
+          { "name": "codigo", "type": "TEXT", "primaryKey": true },
+          { "name": "termo", "type": "TEXT", "notNull": true },
+          { "name": "data_inicio", "type": "TEXT" },
+          { "name": "data_fim", "type": "TEXT" },
+          { "name": "versao", "type": "TEXT" },
+          { "name": "extra_json", "type": "TEXT", "notNull": true }
+        ],
+        "minRows": 1000,
+        "maxRows": 50000
+      }
+    ],
+    "upstreamUrl": "https://www.gov.br/ans/pt-br/assuntos/prestadores/padrao-para-troca-de-informacao-de-saude-suplementar-2013-tiss/padrao-tiss",
+    "expectedCsvColumns": [
+      "CD_TUSS", "TERMO", "TERMO_REDUZIDO",
+      "DT_INICIO_VIGENCIA", "DT_FIM_VIGENCIA"
+    ],
+    "notes": "TUSS é publicado em XLSX/CSV pela ANS. Colunas críticas: CD_TUSS (codigo), TERMO. Drift detectado quando colunas críticas somem ou contagem de linhas cai abaixo do mínimo."
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "source": "DATASUS / CNES (Cadastro Nacional de Estabelecimentos de Saúde)",
+  "capturedAt": "2026-05-15T00:00:00.000Z",
+  "schema": {
+    "tables": [
+      {
+        "name": "estabelecimentos",
+        "description": "Estabelecimentos de saúde (ST/*.dbc)",
+        "columns": [
+          "co_cnes", "no_fantasia", "no_razao_social", "nu_cnpj",
+          "tp_unidade", "co_natureza_jur", "no_municipio", "sg_uf",
+          "co_municipio", "no_logradouro", "nu_latitude", "nu_longitude",
+          "nu_telefone", "vinculo_sus", "tp_gestao", "competencia",
+          "updated_at", "extra_json"
+        ],
+        "minRows": 100
+      },
+      {
+        "name": "profissionais",
+        "description": "Profissionais de saúde (PF/*.dbc)",
+        "columns": [
+          "co_cnes", "cpf_prof", "nm_prof", "co_cbo",
+          "ds_cbo", "tp_vinculo", "competencia", "extra_json"
+        ],
+        "minRows": 100
+      },
+      {
+        "name": "leitos",
+        "description": "Leitos hospitalares (LT/*.dbc)",
+        "columns": [
+          "co_cnes", "tp_leito", "co_leito",
+          "qt_exist", "qt_sus", "qt_nsus", "competencia", "extra_json"
+        ],
+        "minRows": 0
+      },
+      {
+        "name": "equipamentos",
+        "description": "Equipamentos (EQ/*.dbc)",
+        "columns": [
+          "co_cnes", "co_equip", "ds_equip",
+          "qt_exist", "qt_uso", "competencia", "extra_json"
+        ],
+        "minRows": 0
+      },
+      {
+        "name": "servicos_especializados",
+        "description": "Serviços especializados (SR/*.dbc)",
+        "columns": [
+          "co_cnes", "co_servico", "ds_servico",
+          "co_class_sr", "ds_class_sr", "competencia", "extra_json"
+        ],
+        "minRows": 0
+      }
+    ],
+    "upstreamFtp": "ftp.datasus.gov.br",
+    "upstreamPath": "/cnes/",
+    "expectedDbcGroups": ["ST", "PF", "LT", "EQ", "SR"],
+    "notes": "CNES é publicado em arquivos .dbc (DBase comprimido) no FTP DATASUS. Drift detectado quando grupos de arquivos desaparecem ou colunas mapeadas deixam de existir."
+  }
+}
