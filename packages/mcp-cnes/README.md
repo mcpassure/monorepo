@@ -85,7 +85,7 @@ Resources MCP com dados de referência do domínio CNES:
 
 ## Demo
 
-![Demo](./.github/assets/demo.gif)
+🚧 Demo GIF em breve.
 
 ---
 
@@ -178,26 +178,26 @@ Ou no `claude_desktop_config.json`:
 
 ---
 
-## Catálogo Vetrum Brasil
+## Catálogo MCPAssure Brasil
 
-Este é o **segundo MCP do catálogo Vetrum Brasil**, que disponibiliza MCPs de qualidade para o ecossistema de saúde brasileiro:
+Este é parte do **catálogo MCPAssure Brasil**, que disponibiliza MCPs de qualidade para o ecossistema de saúde brasileiro:
 
-1. [@vetrum/mcp-anvisa-bulario](https://github.com/vetrum/mcp-anvisa-bulario) — Bulário Eletrônico ANVISA
+1. [@mcpassure/mcp-anvisa-bulario](https://www.npmjs.com/package/@mcpassure/mcp-anvisa-bulario) — Bulário Eletrônico ANVISA
 2. **@mcpassure/mcp-cnes** — Cadastro Nacional de Estabelecimentos de Saúde ← você está aqui
-3. @vetrum/mcp-tuss — Tabela TUSS / CBHPM / Rol ANS *(em desenvolvimento)*
+3. [@mcpassure/mcp-tuss](https://www.npmjs.com/package/@mcpassure/mcp-tuss) — Tabela TUSS / Rol ANS
 
 ---
 
 ## Desenvolvimento
 
 ```bash
-git clone https://github.com/vetrum/mcp-cnes
-cd mcp-cnes
-npm install
-npm run dev       # servidor MCP em modo desenvolvimento
-npm run test      # testes unitários e de integração
-npm run lint      # lint + format check
-npm run typecheck # verificação de tipos
+git clone https://github.com/mcpassure/monorepo
+cd monorepo
+pnpm install
+pnpm --filter @mcpassure/mcp-cnes dev       # servidor MCP em modo desenvolvimento
+pnpm --filter @mcpassure/mcp-cnes test      # testes unitários e de integração
+pnpm --filter @mcpassure/mcp-cnes lint      # lint + format check
+pnpm --filter @mcpassure/mcp-cnes typecheck # verificação de tipos
 ```
 
 Veja [CONTRIBUTING.md](CONTRIBUTING.md) para guia de contribuição.

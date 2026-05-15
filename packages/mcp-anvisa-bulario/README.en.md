@@ -8,9 +8,10 @@
 
 Enables AI agents (Claude, GPT, Copilot) to query drug leaflets (bulas), active ingredients, therapeutic classes, and other metadata for medications registered in Brazil, with structured responses and efficient caching.
 
-[![CI](https://github.com/mcpassure/mcp-anvisa-bulario/actions/workflows/ci.yml/badge.svg)](https://github.com/mcpassure/mcp-anvisa-bulario/actions)
 [![npm](https://img.shields.io/npm/v/@mcpassure/mcp-anvisa-bulario)](https://www.npmjs.com/package/@mcpassure/mcp-anvisa-bulario)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![OSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/mcpassure/monorepo/badge)](https://securityscorecards.dev/viewer/?uri=github.com/mcpassure/monorepo)
+[![SAFE-MCP](https://img.shields.io/badge/SAFE--MCP-mapped-green)](#safe-mcp-mapping)
 
 ---
 
@@ -89,13 +90,7 @@ Add to `claude_desktop_config.json`:
 
 ## Demo
 
-![Demo](./.github/assets/demo.gif)
-
-To run locally:
-
-```bash
-npm run demo
-```
+🚧 Demo GIF coming soon.
 
 ---
 
@@ -194,3 +189,34 @@ Maintained by [MCPAssure Brasil](https://github.com/mcpassure). See [CONTRIBUTIN
 ---
 
 Part of the [MCPAssure](https://github.com/mcpassure) catalog — curated MCP examples for Brazilian healthcare.
+
+---
+
+## SAFE-MCP Mapping
+
+Assessment against the SAFE-MCP framework (OpenSSF + LF + OpenID Foundation).
+
+### Mitigated attacks
+
+| ID | Attack | Status | How we mitigate it |
+|----|--------|--------|-------------------|
+| SAFE-T001 | Tool Poisoning | ✓ Mitigated | Strict Zod schema; drug names validated before querying the database |
+| SAFE-T002 | Indirect Prompt Injection | ✓ Mitigated | Structured output (`structuredContent`); ANVISA content is tabular, no executable markup |
+| SAFE-T003 | Credential exposure | ✓ Mitigated | Public ANVISA data with no authentication; R2 only in server-side Worker |
+| SAFE-T004 | Data exfiltration | ✓ Mitigated | Read-only on public drug data; no access to user data |
+| SAFE-T005 | Resource exhaustion | ✓ Mitigated | Local SQLite cache (18MB); canary uses HEAD request or single header download |
+
+### NOT mitigated (honest declaration)
+
+| ID | Attack | Why not mitigated |
+|----|--------|------------------|
+| SAFE-T010 | Supply-chain attack via npm | `pnpm audit` + Renovate; no SBOM generated yet |
+| SAFE-T015 | Side-channel timing analysis | Not relevant for public tabular drug data |
+
+### Lethal Trifecta Declaration (Willison, 2025)
+
+1. **Private data access** — ✗ **Absent.** ANVISA Bulário is entirely public; no patient data is accessed.
+2. **Untrusted content exposure** — ⚠ **Partial.** Inputs validated by Zod; ANVISA data is governmental.
+3. **External communication capability** — ✗ **Absent.** MCP operates on local SQLite cache; no runtime external calls.
+
+**Conclusion:** this MCP **does not combine all 3 factors simultaneously**. Local-first architecture eliminates the external communication factor.

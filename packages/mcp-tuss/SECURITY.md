@@ -6,14 +6,16 @@
 
 ## Versões suportadas
 
-| Versão | Suporte de segurança |
-|--------|---------------------|
-| 0.x.x latest | ✓ Ativo |
-| < latest     | ✗ |
+Apenas a última minor de cada major recebe correções de segurança.
 
-## Reportar uma vulnerabilidade
+| Versão | Suportada |
+|--------|-----------|
+| 0.x.x latest | ✓ |
+| < latest    | ✗ |
 
-**Não abra Issues públicas para vulnerabilidades de segurança.**
+## Reportar vulnerabilidade
+
+**Não abra Issue pública para problemas de segurança.**
 
 Envie um e-mail para: `security@mcpassure.com.br`
 
@@ -31,15 +33,12 @@ Inclua:
 
 ## Escopo
 
-Este MCP não processa dados de pacientes (PHI/PII). Os dados expostos são públicos do CNES/DATASUS.
-
-CPFs de profissionais são mascarados por padrão (`privacy-first`).
+Este MCP não processa dados de pacientes (PHI/PII). Os dados expostos são tabelas públicas da ANS (TUSS).
 
 Vulnerabilidades em escopo:
 - Injeção SQL via inputs das tools
 - Path traversal no script de sync
 - Dependências com CVEs conhecidos
-- Vazamento de CPF via misconfiguration de `MCPASSURE_LGPD_ALLOW_PII`
 
 ## Disclosure responsável
 

@@ -6,9 +6,10 @@
 
 **MCP server for querying CNES — Brazilian National Registry of Healthcare Establishments (Cadastro Nacional de Estabelecimentos de Saúde)**
 
-[![CI](https://github.com/mcpassure/mcp-cnes/actions/workflows/ci.yml/badge.svg)](https://github.com/mcpassure/mcp-cnes/actions/workflows/ci.yml)
 [![npm](https://img.shields.io/npm/v/@mcpassure/mcp-cnes)](https://www.npmjs.com/package/@mcpassure/mcp-cnes)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![OSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/mcpassure/monorepo/badge)](https://securityscorecards.dev/viewer/?uri=github.com/mcpassure/monorepo)
+[![SAFE-MCP](https://img.shields.io/badge/SAFE--MCP-mapped-green)](#safe-mcp-mapping)
 
 Enables AI agents (Claude, GPT, Copilot, etc.) to query official CNES/DATASUS (Brazilian Public Health Data Department) data: healthcare establishments, hospital beds, equipment, professionals, and specialized services across all ~5,570 Brazilian municipalities.
 
@@ -84,7 +85,7 @@ MCP resources with CNES domain reference data:
 
 ## Demo
 
-![Demo](./.github/assets/demo.gif)
+🚧 Demo GIF coming soon.
 
 ---
 
@@ -153,22 +154,53 @@ Professional data registered in CNES is **public** and includes name, CBO (Brazi
 
 This is part of the **MCPAssure Brasil catalog**, providing quality MCPs for the Brazilian health ecosystem:
 
-1. [@mcpassure/mcp-anvisa-bulario](https://github.com/mcpassure/mcp-anvisa-bulario) — ANVISA Electronic Drug Database
+1. [@mcpassure/mcp-anvisa-bulario](https://www.npmjs.com/package/@mcpassure/mcp-anvisa-bulario) — ANVISA Electronic Drug Database
 2. **@mcpassure/mcp-cnes** — Brazilian National Registry of Healthcare Establishments ← you are here
-3. @mcpassure/mcp-tuss — TUSS / CBHPM / ANS Table *(in development)*
+3. [@mcpassure/mcp-tuss](https://www.npmjs.com/package/@mcpassure/mcp-tuss) — TUSS / ANS Table
 
 ---
 
 ## Development
 
 ```bash
-git clone https://github.com/mcpassure/mcp-cnes
-cd mcp-cnes
-npm install
-npm run dev       # MCP server in development mode
-npm run test      # unit and integration tests
-npm run lint      # lint + format check
-npm run typecheck # type checking
+git clone https://github.com/mcpassure/monorepo
+cd monorepo
+pnpm install
+pnpm --filter @mcpassure/mcp-cnes dev       # MCP server in development mode
+pnpm --filter @mcpassure/mcp-cnes test      # unit and integration tests
+pnpm --filter @mcpassure/mcp-cnes lint      # lint + format check
+pnpm --filter @mcpassure/mcp-cnes typecheck # type checking
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution guide.
+
+---
+
+## SAFE-MCP Mapping
+
+Assessment against the SAFE-MCP framework (OpenSSF + LF + OpenID Foundation).
+
+### Mitigated attacks
+
+| ID | Attack | Status | How we mitigate it |
+|----|--------|--------|-------------------|
+| SAFE-T001 | Tool Poisoning | ✓ Mitigated | Strict Zod schema on all inputs; typed parameters |
+| SAFE-T002 | Indirect Prompt Injection | ✓ Mitigated | `structuredContent` separated from free text; DATASUS data contains no markup |
+| SAFE-T003 | Credential exposure | ✓ Mitigated | R2 credentials only in server-side Worker; client stores no secrets |
+| SAFE-T004 | PII leakage | ✓ Mitigated | CPF masked by default (`privacy-first`); explicit opt-in required to expose PII |
+| SAFE-T005 | Resource exhaustion | ✓ Mitigated | Local SQLite cache; no runtime requests to DATASUS FTP |
+
+### NOT mitigated (honest declaration)
+
+| ID | Attack | Why not mitigated |
+|----|--------|------------------|
+| SAFE-T010 | Supply-chain attack | Relies on `pnpm audit` + Renovate; no SBOM generated yet |
+| SAFE-T011 | LGPD violation via misconfiguration | `MCPASSURE_LGPD_ALLOW_PII=cnes` requires conscious user configuration |
+
+### Lethal Trifecta Declaration (Willison, 2025)
+
+1. **Private data access** — ⚠ **Partial.** Professional CNES data is public by law, but CPFs are personal data. Mitigated with default masking + explicit opt-in.
+2. **Untrusted content exposure** — ⚠ **Partial.** Inputs validated by Zod; DATASUS data is governmental and considered trusted.
+3. **External communication capability** — ✗ **Absent.** MCP operates only on local DB; no external calls at runtime.
+
+**Conclusion:** Factor #1 is partial and managed — does not complete the trifecta. CNES is the most privacy-sensitive MCP in the MCPAssure suite.

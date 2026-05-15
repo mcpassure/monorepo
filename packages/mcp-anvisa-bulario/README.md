@@ -91,13 +91,7 @@ Adicione ao `claude_desktop_config.json`:
 
 ## Demo
 
-![Demo](./.github/assets/demo.gif)
-
-Para rodar localmente:
-
-```bash
-npm run demo
-```
+🚧 Demo GIF em breve.
 
 ---
 

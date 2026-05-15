@@ -8,6 +8,8 @@
 
 [![npm](https://img.shields.io/npm/v/@mcpassure/mcp-tuss)](https://www.npmjs.com/package/@mcpassure/mcp-tuss)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![OSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/mcpassure/monorepo/badge)](https://securityscorecards.dev/viewer/?uri=github.com/mcpassure/monorepo)
+[![SAFE-MCP](https://img.shields.io/badge/SAFE--MCP-mapped-green)](#safe-mcp-mapping)
 
 Enables AI agents (Claude Desktop, Cursor, VS Code, etc.) to query TUSS (Brazilian Unified Healthcare Terminology) tables from ANS (Brazilian National Supplementary Health Agency) — medical procedures (Tab. 22), medications (Tab. 20), and hospital daily fees/taxes (Tab. 18) — with local SQLite cache and < 5ms latency.
 
@@ -115,7 +117,7 @@ Args: { "codigos": "30602165,00000000,90010012" }
 
 ## Demo
 
-![Demo](./.github/assets/demo.gif)
+🚧 Demo GIF coming soon.
 
 ---
 
@@ -162,6 +164,37 @@ TUSS (Brazilian Unified Healthcare Terminology) data extracted from official tab
 ## License
 
 MIT — Copyright MCPAssure Brasil 2026
+
+---
+
+## SAFE-MCP Mapping
+
+Assessment against the SAFE-MCP framework (OpenSSF + LF + OpenID Foundation).
+
+### Mitigated attacks
+
+| ID | Attack | Status | How we mitigate it |
+|----|--------|--------|-------------------|
+| SAFE-T001 | Tool Poisoning | ✓ Mitigated | Strict Zod schema on all tools; runtime input validation |
+| SAFE-T002 | Indirect Prompt Injection via tool output | ✓ Mitigated | Structured output (`structuredContent`); no free-text from external sources |
+| SAFE-T003 | Credential exposure | ✓ Mitigated | No credentials at runtime — public ANS data, no authentication required |
+| SAFE-T004 | Data exfiltration | ✓ Mitigated | Read-only tools on public data; no access to user data |
+| SAFE-T005 | Resource exhaustion | ✓ Mitigated | Local SQLite cache, configurable rate limit, no runtime download loops |
+
+### NOT mitigated (honest declaration)
+
+| ID | Attack | Why not mitigated |
+|----|--------|------------------|
+| SAFE-T010 | Supply-chain attack via npm deps | Relies on `pnpm audit` + Renovate; no SBOM generated yet |
+| SAFE-T015 | Side-channel timing analysis | Not relevant for public tabular data |
+
+### Lethal Trifecta Declaration (Willison, 2025)
+
+1. **Private data access** — ✗ **Absent.** TUSS tables are public ANS data; no user data is accessed.
+2. **Untrusted content exposure** — ⚠ **Partial.** Inputs validated by Zod; returned data comes from local DB, not real-time external sources.
+3. **External communication capability** — ✗ **Absent.** MCP communicates only with local SQLite; sync is a separate operation, not runtime.
+
+**Conclusion:** this MCP **does not combine all 3 factors simultaneously**. Declared architectural differentiator by design.
 
 ---
 

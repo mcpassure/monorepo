@@ -117,7 +117,7 @@ Args: { "codigos": "30602165,00000000,90010012" }
 
 ## Demo
 
-![Demo](./.github/assets/demo.gif)
+🚧 Demo GIF em breve.
 
 ---
 
