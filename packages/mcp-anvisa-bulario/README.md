@@ -8,9 +8,10 @@
 
 Permite que agentes de IA (Claude, GPT, Copilot) consultem bulas, princípios ativos, classes terapêuticas e demais metadados de medicamentos registrados no Brasil com resposta estruturada e cache eficiente.
 
-[![CI](https://github.com/mcpassure/mcp-anvisa-bulario/actions/workflows/ci.yml/badge.svg)](https://github.com/mcpassure/mcp-anvisa-bulario/actions)
 [![npm](https://img.shields.io/npm/v/@mcpassure/mcp-anvisa-bulario)](https://www.npmjs.com/package/@mcpassure/mcp-anvisa-bulario)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![OSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/mcpassure/monorepo/badge)](https://securityscorecards.dev/viewer/?uri=github.com/mcpassure/monorepo)
+[![SAFE-MCP](https://img.shields.io/badge/SAFE--MCP-mapped-green)](#safe-mcp-mapping)
 
 ---
 
@@ -190,3 +191,34 @@ Mantido pela [MCPAssure Brasil](https://github.com/mcpassure). Consulte [CONTRIB
 ---
 
 Parte do catálogo [MCPAssure](https://github.com/mcpassure) — exemplos de curadoria de MCPs para saúde brasileira.
+
+---
+
+## SAFE-MCP Mapping
+
+Avaliação contra o framework SAFE-MCP (OpenSSF + LF + OpenID Foundation).
+
+### Ataques mitigados
+
+| ID | Ataque | Status | Como mitigamos |
+|----|--------|--------|----------------|
+| SAFE-T001 | Tool Poisoning | ✓ Mitigado | Schema Zod estrito; nomes de medicamentos validados antes de consultar banco |
+| SAFE-T002 | Indirect Prompt Injection | ✓ Mitigado | Output estruturado (`structuredContent`); conteúdo ANVISA é tabular, sem markup executável |
+| SAFE-T003 | Credential exposure | ✓ Mitigado | Dados públicos ANVISA sem autenticação; R2 apenas em Worker server-side |
+| SAFE-T004 | Data exfiltration | ✓ Mitigado | Read-only sobre dados públicos de medicamentos; sem acesso a dados de usuário |
+| SAFE-T005 | Resource exhaustion | ✓ Mitigado | Cache SQLite local (18MB); canary usa HEAD request ou download único de header |
+
+### Ataques NÃO mitigados (declaração honesta)
+
+| ID | Ataque | Por que não mitigado |
+|----|--------|---------------------|
+| SAFE-T010 | Supply-chain attack via npm | `pnpm audit` + Renovate; sem SBOM gerado ainda |
+| SAFE-T015 | Side-channel timing analysis | Não relevante para dados públicos tabelados de medicamentos |
+
+### Lethal Trifecta Declaration (Willison, 2025)
+
+1. **Acesso a dados privados** — ✗ **Ausente.** Bulário ANVISA é integralmente público; nenhum dado de paciente é acessado.
+2. **Exposição a conteúdo não-confiável** — ⚠ **Parcial.** Inputs validados por Zod; dados ANVISA são governamentais.
+3. **Capacidade de comunicação externa** — ✗ **Ausente.** MCP opera sobre banco SQLite local; sem chamadas em runtime.
+
+**Conclusão:** este MCP **não combina os 3 fatores simultaneamente**. Arquitetura local-first elimina o fator de comunicação externa.

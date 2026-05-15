@@ -1,0 +1,66 @@
+header:
+  schema-version: 2.0.0
+  expiration-date: '2027-05-15T00:00:00Z'
+  last-updated: '2026-05-15'
+  last-reviewed: '2026-05-15'
+  project-url: https://github.com/mcpassure/monorepo
+  project-release: '0.1.2'
+  changelog: https://github.com/mcpassure/monorepo/blob/main/packages/mcp-tuss/CHANGELOG.md
+  license: https://github.com/mcpassure/monorepo/blob/main/packages/mcp-tuss/LICENSE
+
+project-lifecycle:
+  bug-fixes-only: false
+  core-maintainers:
+    - https://github.com/dtornieri
+  release-cycle: https://github.com/mcpassure/monorepo/releases
+  release-process: SemVer 2.0.0 via changesets + npm publish on main merge
+  status: active
+
+contribution-policy:
+  accepts-pull-requests: true
+  accepts-automated-pull-requests: true
+  contributing-policy: https://github.com/mcpassure/monorepo/blob/main/packages/mcp-tuss/CONTRIBUTING.md
+  code-of-conduct: https://github.com/mcpassure/monorepo/blob/main/packages/mcp-tuss/CODE_OF_CONDUCT.md
+
+distribution-points:
+  - https://www.npmjs.com/package/@mcpassure/mcp-tuss
+
+security-artifacts:
+  threat-model:
+    threat-model-created: true
+    evidence-url:
+      - https://github.com/mcpassure/monorepo/blob/main/packages/mcp-tuss/README.md#safe-mcp-mapping
+  self-assessment:
+    self-assessment-created: false
+
+security-testing:
+  - tool-type: sca
+    tool-name: pnpm audit
+    integration:
+      ad-hoc: true
+      ci: true
+      before-release: true
+  - tool-type: sast
+    tool-name: CodeQL
+    integration:
+      ad-hoc: false
+      ci: true
+      before-release: true
+  - tool-type: scorecard
+    tool-name: OSSF Scorecard
+    integration:
+      ad-hoc: false
+      ci: true
+      before-release: false
+
+security-assessments:
+  - auditor-name: self
+    auditor-url: https://github.com/dtornieri
+    auditor-report: https://github.com/mcpassure/monorepo/blob/main/packages/mcp-tuss/README.md#safe-mcp-mapping
+    report-year: 2026
+
+vulnerability-reporting:
+  accepts-vulnerability-reports: true
+  email-contact: security@mcpassure.com.br
+  security-policy: https://github.com/mcpassure/monorepo/blob/main/packages/mcp-tuss/SECURITY.md
+  bug-bounty-available: false

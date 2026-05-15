@@ -6,9 +6,10 @@
 
 **MCP server para consulta ao CNES — Cadastro Nacional de Estabelecimentos de Saúde**
 
-[![CI](https://github.com/vetrum/mcp-cnes/actions/workflows/ci.yml/badge.svg)](https://github.com/vetrum/mcp-cnes/actions/workflows/ci.yml)
 [![npm](https://img.shields.io/npm/v/@mcpassure/mcp-cnes)](https://www.npmjs.com/package/@mcpassure/mcp-cnes)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![OSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/mcpassure/monorepo/badge)](https://securityscorecards.dev/viewer/?uri=github.com/mcpassure/monorepo)
+[![SAFE-MCP](https://img.shields.io/badge/SAFE--MCP-mapped-green)](#safe-mcp-mapping)
 
 Permite que agentes de IA (Claude, GPT, Copilot, etc.) consultem dados oficiais do CNES/DATASUS: estabelecimentos de saúde, leitos, equipamentos, profissionais e serviços especializados em todos os ~5.570 municípios brasileiros.
 
@@ -200,3 +201,34 @@ npm run typecheck # verificação de tipos
 ```
 
 Veja [CONTRIBUTING.md](CONTRIBUTING.md) para guia de contribuição.
+
+---
+
+## SAFE-MCP Mapping
+
+Avaliação contra o framework SAFE-MCP (OpenSSF + LF + OpenID Foundation).
+
+### Ataques mitigados
+
+| ID | Ataque | Status | Como mitigamos |
+|----|--------|--------|----------------|
+| SAFE-T001 | Tool Poisoning | ✓ Mitigado | Schema Zod estrito em todos os inputs; parâmetros tipados |
+| SAFE-T002 | Indirect Prompt Injection | ✓ Mitigado | `structuredContent` separado do texto livre; dados do DATASUS não contêm markup |
+| SAFE-T003 | Credential exposure | ✓ Mitigado | Credenciais R2 apenas em Worker server-side; client não armazena secrets |
+| SAFE-T004 | PII leakage | ✓ Mitigado | CPF mascarado por padrão (`privacy-first`); opt-in explícito para PII |
+| SAFE-T005 | Resource exhaustion | ✓ Mitigado | Cache SQLite local, sem requests em runtime ao FTP DATASUS |
+
+### Ataques NÃO mitigados (declaração honesta)
+
+| ID | Ataque | Por que não mitigado |
+|----|--------|---------------------|
+| SAFE-T010 | Supply-chain attack | `pnpm audit` + Renovate; sem SBOM gerado ainda |
+| SAFE-T011 | LGPD violation por misconfiguration | `MCPASSURE_LGPD_ALLOW_PII=cnes` requer configuração consciente do usuário |
+
+### Lethal Trifecta Declaration (Willison, 2025)
+
+1. **Acesso a dados privados** — ⚠ **Parcial.** Dados de profissionais CNES são públicos por lei, mas CPFs são dados pessoais. Mitigados com masking por default + opt-in explícito.
+2. **Exposição a conteúdo não-confiável** — ⚠ **Parcial.** Inputs validados por Zod; dados DATASUS são governamentais e considerados confiáveis.
+3. **Capacidade de comunicação externa** — ✗ **Ausente.** MCP opera apenas sobre DB local; sem chamadas externas em runtime.
+
+**Conclusão:** Fator #1 é parcial e gerenciado — não completa o trifecta. CNES é o MCP com maior atenção à privacidade da suíte MCPAssure.

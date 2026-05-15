@@ -8,6 +8,8 @@
 
 [![npm](https://img.shields.io/npm/v/@mcpassure/mcp-tuss)](https://www.npmjs.com/package/@mcpassure/mcp-tuss)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![OSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/mcpassure/monorepo/badge)](https://securityscorecards.dev/viewer/?uri=github.com/mcpassure/monorepo)
+[![SAFE-MCP](https://img.shields.io/badge/SAFE--MCP-mapped-green)](#safe-mcp-mapping)
 
 Permite que agentes de IA (Claude Desktop, Cursor, VS Code, etc.) consultem as tabelas TUSS da ANS — procedimentos médicos (Tab. 22), medicamentos (Tab. 20) e diárias/taxas hospitalares (Tab. 18) — com cache local SQLite e latência < 5ms.
 
@@ -150,6 +152,37 @@ npm run canary       # verifica disponibilidade da fonte ANS
 - **CBHPM — removida permanentemente do escopo (2026-05-15).** A CBHPM é propriedade intelectual da AMB (Associação Médica Brasileira), vendida em livro impresso/digital, **não é base aberta**. Distribuí-la via MCP público violaria direito autoral. CBHPM **não entra em versão nenhuma**.
 - **TUSS Tab. 19 OPME** não implementada (XLSX 105MB — performance, em estudo)
 - Busca usa LIKE com índice B-tree (FTS5 é melhoria v2)
+
+---
+
+## SAFE-MCP Mapping
+
+Avaliação contra o framework SAFE-MCP (OpenSSF + LF + OpenID Foundation).
+
+### Ataques mitigados
+
+| ID | Ataque | Status | Como mitigamos |
+|----|--------|--------|----------------|
+| SAFE-T001 | Tool Poisoning | ✓ Mitigado | Tools com schema Zod estrito, validação de input em runtime |
+| SAFE-T002 | Indirect Prompt Injection via tool output | ✓ Mitigado | Output estruturado (`structuredContent`), sem texto livre de fonte externa |
+| SAFE-T003 | Credential exposure | ✓ Mitigado | Sem credenciais em runtime client — dados públicos ANS sem auth |
+| SAFE-T004 | Data exfiltration | ✓ Mitigado | Tools read-only sobre dados públicos; sem acesso a dados do usuário |
+| SAFE-T005 | Resource exhaustion | ✓ Mitigado | Cache SQLite local, rate limit configurável, sem loops de download em runtime |
+
+### Ataques NÃO mitigados (declaração honesta)
+
+| ID | Ataque | Por que não mitigado |
+|----|--------|---------------------|
+| SAFE-T010 | Supply-chain attack via npm deps | Confiamos em `pnpm audit` + Renovate; sem SBOM gerado ainda |
+| SAFE-T015 | Side-channel timing analysis | Não relevante para dados públicos tabelados |
+
+### Lethal Trifecta Declaration (Willison, 2025)
+
+1. **Acesso a dados privados** — ✗ **Ausente.** TUSS são tabelas públicas ANS; nenhum dado de usuário é acessado.
+2. **Exposição a conteúdo não-confiável** — ⚠ **Parcial.** Inputs validados por Zod; dados retornados são do banco local, não de fontes externas em tempo real.
+3. **Capacidade de comunicação externa** — ✗ **Ausente.** MCP comunica apenas com banco SQLite local; sync é operação separada, não em runtime.
+
+**Conclusão:** este MCP **não combina os 3 fatores simultaneamente**. Diferencial arquitetural declarado por design.
 
 ---
 
