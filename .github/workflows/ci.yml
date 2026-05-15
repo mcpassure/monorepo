@@ -19,3 +19,7 @@ jobs:
       - run: pnpm typecheck
       - run: pnpm test
       - run: pnpm build
+      - name: E2E tests (skip if no local DB)
+        run: pnpm -r run test:e2e
+        continue-on-error: true
+        timeout-minutes: 10

@@ -36,7 +36,8 @@
     "build": "tsc -p tsconfig.build.json",
     "start": "node dist/index.js",
     "dev": "tsx src/index.ts",
-    "test": "vitest run",
+    "test": "vitest run --exclude tests/e2e",
+    "test:e2e": "vitest run tests/e2e",
     "test:watch": "vitest",
     "test:integration": "tsx integration-tests/bin/run-all.ts",
     "test:integration:offline": "tsx integration-tests/bin/run-all.ts --offline",
@@ -58,6 +59,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.15",
+    "@mcpassure/test-utils": "workspace:*",
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^22.10.0",
     "tsx": "^4.21.0",
