@@ -1,6 +1,6 @@
 {
   "name": "@mcpassure/mcp-tuss",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "mcpName": "io.github.mcpassure/mcp-tuss",
   "description": "MCP server para consulta integrada de TUSS e Rol de Procedimentos ANS",
   "license": "MIT",

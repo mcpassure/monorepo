@@ -1,6 +1,6 @@
 {
   "name": "@mcpassure/mcp-cnes",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "mcpName": "io.github.mcpassure/mcp-cnes",
   "description": "MCP server para consulta ao CNES — Cadastro Nacional de Estabelecimentos de Saúde",
   "license": "MIT",

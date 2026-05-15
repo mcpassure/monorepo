@@ -24,10 +24,18 @@
     "dbTable": {
       "name": "medicamentos",
       "columns": [
-        "rowid", "tipo_produto", "nome_produto", "data_finalizacao",
-        "categoria_regulatoria", "numero_registro", "data_vencimento",
-        "numero_processo", "classe_terapeutica", "empresa",
-        "situacao_registro", "principio_ativo"
+        "rowid",
+        "tipo_produto",
+        "nome_produto",
+        "data_finalizacao",
+        "categoria_regulatoria",
+        "numero_registro",
+        "data_vencimento",
+        "numero_processo",
+        "classe_terapeutica",
+        "empresa",
+        "situacao_registro",
+        "principio_ativo"
       ]
     },
     "notes": "CSV publicado por ANVISA com separador ';' e encoding Latin1. Drift detectado quando numero de colunas muda, tamanho do CSV cai abaixo de 1MB, ou colunas criticas somem."

@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -35,7 +35,7 @@ async function checkUpstreamAccessible(url: string): Promise<{ ok: boolean; deta
 
 async function check(): Promise<{ ok: boolean; diffs: string[] }> {
   const baseline: Baseline = JSON.parse(
-    readFileSync(join(__dirname, "../tests/fixtures/schema-baseline.tuss.json"), "utf-8"),
+    readFileSync(join(__dirname, "../tests/fixtures/schema-baseline.tuss.json"), "utf-8")
   );
 
   const diffs: string[] = [];
@@ -65,15 +65,15 @@ async function check(): Promise<{ ok: boolean; diffs: string[] }> {
 
       for (const expected of expectedNames) {
         if (!actualNames.includes(expected)) {
-          diffs.push(`Tabela '${table.name}': coluna '${expected}' não encontrada (schema drift local)`);
+          diffs.push(
+            `Tabela '${table.name}': coluna '${expected}' não encontrada (schema drift local)`
+          );
         }
       }
 
       const row = db.prepare(`SELECT COUNT(*) as n FROM ${table.name}`).get() as { n: number };
       if (row.n < table.minRows) {
-        diffs.push(
-          `Tabela '${table.name}': ${row.n} linhas < mínimo esperado ${table.minRows}`,
-        );
+        diffs.push(`Tabela '${table.name}': ${row.n} linhas < mínimo esperado ${table.minRows}`);
       } else {
         console.log(`Tabela '${table.name}': ${row.n} linhas OK`);
       }
@@ -91,7 +91,9 @@ check()
   .then((result) => {
     if (!result.ok) {
       console.error("DRIFT DETECTADO:");
-      result.diffs.forEach((d) => console.error(`  - ${d}`));
+      for (const d of result.diffs) {
+        console.error(`  - ${d}`);
+      }
       process.exit(1);
     }
     console.log("Schema TUSS OK — sem drift detectado");

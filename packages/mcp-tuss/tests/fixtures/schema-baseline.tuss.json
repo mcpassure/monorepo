@@ -48,8 +48,11 @@
     ],
     "upstreamUrl": "https://www.gov.br/ans/pt-br/assuntos/prestadores/padrao-para-troca-de-informacao-de-saude-suplementar-2013-tiss/padrao-tiss",
     "expectedCsvColumns": [
-      "CD_TUSS", "TERMO", "TERMO_REDUZIDO",
-      "DT_INICIO_VIGENCIA", "DT_FIM_VIGENCIA"
+      "CD_TUSS",
+      "TERMO",
+      "TERMO_REDUZIDO",
+      "DT_INICIO_VIGENCIA",
+      "DT_FIM_VIGENCIA"
     ],
     "notes": "TUSS é publicado em XLSX/CSV pela ANS. Colunas críticas: CD_TUSS (codigo), TERMO. Drift detectado quando colunas críticas somem ou contagem de linhas cai abaixo do mínimo."
   }
