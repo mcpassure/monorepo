@@ -1,0 +1,86 @@
+name: Canary
+
+on:
+  schedule:
+    - cron: "0 6 * * *"  # 03h BRT diário
+  workflow_dispatch:
+
+jobs:
+  canary:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - package: mcp-tuss
+            canary_cmd: "pnpm --filter @mcpassure/mcp-tuss canary"
+          - package: mcp-cnes
+            canary_cmd: "pnpm --filter @mcpassure/mcp-cnes canary"
+          - package: mcp-anvisa-bulario
+            canary_cmd: "pnpm --filter @mcpassure/mcp-anvisa-bulario canary"
+      fail-fast: false
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+
+      - name: Run canary for ${{ matrix.package }}
+        id: canary
+        continue-on-error: true
+        run: ${{ matrix.canary_cmd }}
+
+      - name: Open issue on canary failure
+        if: steps.canary.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pkg = '${{ matrix.package }}';
+            const date = new Date().toISOString().slice(0, 10);
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: `upstream-down,${pkg}`,
+              state: 'open',
+            });
+            if (existing.data.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `[upstream-down] ${pkg} — fonte indisponível em ${date}`,
+                body: `Canary diário falhou para \`@mcpassure/${pkg}\`.\n\nVerificar logs da action.\n\nIssue fechada automaticamente quando canary voltar a passar.`,
+                labels: ['upstream-down', pkg]
+              });
+            }
+
+      - name: Close issue on recovery
+        if: steps.canary.outcome == 'success'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pkg = '${{ matrix.package }}';
+            const openIssues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: `upstream-down,${pkg}`,
+              state: 'open',
+            });
+            for (const issue of openIssues.data) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `Canary voltou a passar em ${new Date().toISOString()}. Fechando.`
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                state: 'closed'
+              });
+            }
